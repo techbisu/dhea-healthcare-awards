@@ -1,0 +1,211 @@
+---
+const categoryGroups = [
+  {
+    id: "hospitals",
+    name: "Hospitals & Providers",
+    icon: "🏥",
+    awards: [
+      { name: "Hospital of the Year (National)", level: "National", code: "HOS-01" },
+      { name: "Best Multi-Specialty Hospital (Regional: East, West, North, South)", level: "Regional", code: "HOS-02" },
+      { name: "Best Single-Specialty Hospital (Cardiology / Oncology / Ortho / Neuro)", level: "National", code: "HOS-03" },
+      { name: "Excellence in Patient Safety & Clinical Outcomes", level: "National", code: "HOS-04" },
+      { name: "Best Green & Sustainable Hospital Campus", level: "National", code: "HOS-05" },
+      { name: "Excellence in Critical & Emergency Care Infrastructure", level: "State / Regional", code: "HOS-06" },
+      { name: "Best Daycare Surgical & Ambulatory Centre", level: "Regional", code: "HOS-07" },
+      { name: "Most Trusted Community Hospital", level: "State", code: "HOS-08" },
+    ]
+  },
+  {
+    id: "doctors",
+    name: "Doctors & Clinicians",
+    icon: "🩺",
+    awards: [
+      { name: "Clinician of the Year", level: "National", code: "DOC-01" },
+      { name: "Surgeon of the Year (Surgical Innovation)", level: "National", code: "DOC-02" },
+      { name: "Lifetime Achievement Award in Healthcare", level: "National", code: "DOC-03" },
+      { name: "Young Medical Researcher of the Year (Under 40)", level: "National", code: "DOC-04" },
+      { name: "Excellence in Rural & Community Medical Service", level: "State / Regional", code: "DOC-05" },
+      { name: "Outstanding Medical Educator of the Year", level: "National", code: "DOC-06" },
+      { name: "Pioneering Work in Minimally Invasive Surgery", level: "National", code: "DOC-07" },
+    ]
+  },
+  {
+    id: "pharma",
+    name: "Pharma & Biotech",
+    icon: "💊",
+    awards: [
+      { name: "Pharmaceutical Company of the Year", level: "National", code: "PHA-01" },
+      { name: "Excellence in Novel Drug Delivery & Formulation", level: "National", code: "PHA-02" },
+      { name: "Biotech Innovator of the Year", level: "National", code: "PHA-03" },
+      { name: "Excellence in Vaccine Development & Supply Chain", level: "National", code: "PHA-04" },
+      { name: "Outstanding Active Pharmaceutical Ingredient (API) Manufacturer", level: "National", code: "PHA-05" },
+      { name: "Best Regulatory Compliance & Quality Assurance", level: "National", code: "PHA-06" },
+      { name: "Affordable Healthcare & Essential Medicine Initiative", level: "National", code: "PHA-07" },
+    ]
+  },
+  {
+    id: "diagnostics",
+    name: "Diagnostic & IVF",
+    icon: "🔬",
+    awards: [
+      { name: "Diagnostic Laboratory Chain of the Year", level: "National", code: "DIA-01" },
+      { name: "Best Pathology Laboratory (Regional & State)", level: "Regional", code: "DIA-02" },
+      { name: "Excellence in Molecular Diagnostics & Genomics", level: "National", code: "DIA-03" },
+      { name: "Advanced Radiology & Imaging Centre of the Year", level: "National", code: "DIA-04" },
+      { name: "IVF & Fertility Chain of the Year", level: "National", code: "DIA-05" },
+      { name: "Excellence in Embryology & Reproductive Genetics", level: "National", code: "DIA-06" },
+    ]
+  },
+  {
+    id: "healthtech",
+    name: "HealthTech & Startups",
+    icon: "🚀",
+    awards: [
+      { name: "HealthTech Startup of the Year", level: "National", code: "TECH-01" },
+      { name: "Breakthrough AI Application in Clinical Healthcare", level: "National", code: "TECH-02" },
+      { name: "Best Telemedicine & Remote Patient Monitoring Platform", level: "National", code: "TECH-03" },
+      { name: "Excellence in Indigenous Medical Device Manufacturing", level: "National", code: "TECH-04" },
+      { name: "Most Innovative Digital Health Ecosystem", level: "National", code: "TECH-05" },
+      { name: "Cybersecurity & Data Privacy Excellence in Healthcare", level: "National", code: "TECH-06" },
+    ]
+  },
+  {
+    id: "leadership",
+    name: "Leadership & C-Suite",
+    icon: "👔",
+    awards: [
+      { name: "Healthcare CEO of the Year", level: "National", code: "LDR-01" },
+      { name: "Medical Director of the Year", level: "National", code: "LDR-02" },
+      { name: "Healthcare CFO of the Year (Financial Sustainability)", level: "National", code: "LDR-03" },
+      { name: "Healthcare CIO / CTO of the Year (Digital Transformation)", level: "National", code: "LDR-04" },
+      { name: "Woman Healthcare Leader of the Year", level: "National", code: "LDR-05" },
+      { name: "Excellence in Nursing Leadership & Administration", level: "National", code: "LDR-06" },
+    ]
+  }
+];
+---
+
+<section id="categories" class="relative py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <div class="section-badge">100+ Categories</div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+        Award <span class="gold-text-gradient">Categories</span>
+      </h2>
+      <p class="max-w-3xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
+        DHEA 2026 features National, Regional & State Awards spanning 100+ categories to celebrate the full spectrum of healthcare impact.
+      </p>
+    </div>
+
+    <!-- Category Tabs Navigation -->
+    <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10">
+      {categoryGroups.map((group, index) => (
+        <button
+          type="button"
+          data-tab-target={`cat-tab-${group.id}`}
+          class={`cat-tab-btn px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer flex items-center gap-2 border ${
+            index === 0
+              ? 'bg-[#2f1f0f] text-[#f6dd9f] border-[#d4a34b] shadow-gold-glow'
+              : 'bg-[#181108]/80 text-[#c5b59f] border-[#30210f] hover:border-[#d4a34b]/40 hover:text-white'
+          }`}
+        >
+          <span>{group.icon}</span>
+          <span>{group.name}</span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Category Tab Panels -->
+    <div class="space-y-6">
+      {categoryGroups.map((group, index) => (
+        <div 
+          id={`cat-tab-${group.id}`} 
+          class={`cat-tab-panel ${index === 0 ? 'block' : 'hidden'}`}
+        >
+          <div class="glass-card rounded-2xl p-6 sm:p-8 border border-[#d4a34b]/25 bg-[#140e08]/90">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#d4a34b]/20 gap-3">
+              <div class="flex items-center gap-3">
+                <span class="text-2xl">{group.icon}</span>
+                <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">
+                  {group.name} Awards
+                </h3>
+              </div>
+              <span class="text-xs text-[#d4a34b] font-medium tracking-wide">
+                Showing {group.awards.length} featured categories
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {group.awards.map((award) => (
+                <div class="p-4 rounded-xl bg-[#1d140a]/80 border border-[#2d1e0f] hover:border-[#d4a34b]/50 transition-all flex items-center justify-between gap-3 group">
+                  <div class="flex items-center gap-3">
+                    <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#2e1f0e] text-[#f6dd9f] border border-[#d4a34b]/20 shrink-0">
+                      {award.code}
+                    </span>
+                    <div>
+                      <h4 class="text-xs sm:text-sm font-semibold text-[#f3ede2] group-hover:text-[#f6dd9f] transition-colors">
+                        {award.name}
+                      </h4>
+                      <span class="text-[11px] text-[#b5a38c]">{award.level} Recognition</span>
+                    </div>
+                  </div>
+                  <button 
+                    type="button"
+                    onclick="window.openModal('modal-nominate')"
+                    class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-[#2c1d0e] text-[#f6dd9f] hover:bg-[#d4a34b] hover:text-black transition-colors shrink-0 cursor-pointer"
+                  >
+                    Nominate →
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-[#2a1d0d] flex flex-col sm:flex-row items-center justify-between gap-4">
+              <span class="text-xs text-[#bdae9c]">Looking for full criteria or custom regional categories?</span>
+              <button 
+                type="button"
+                onclick="window.openModal('modal-brochure')"
+                class="btn-outline-gold px-5 py-2.5 rounded-lg text-xs font-bold tracking-wider cursor-pointer"
+              >
+                Download Full Category Matrix (PDF)
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const tabBtns = document.querySelectorAll('.cat-tab-btn');
+  const tabPanels = document.querySelectorAll('.cat-tab-panel');
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-tab-target');
+      
+      tabBtns.forEach((b) => {
+        b.classList.remove('bg-[#2f1f0f]', 'text-[#f6dd9f]', 'border-[#d4a34b]', 'shadow-gold-glow');
+        b.classList.add('bg-[#181108]/80', 'text-[#c5b59f]', 'border-[#30210f]');
+      });
+
+      btn.classList.add('bg-[#2f1f0f]', 'text-[#f6dd9f]', 'border-[#d4a34b]', 'shadow-gold-glow');
+      btn.classList.remove('bg-[#181108]/80', 'text-[#c5b59f]', 'border-[#30210f]');
+
+      tabPanels.forEach((panel) => {
+        if (panel.id === targetId) {
+          panel.classList.remove('hidden');
+          panel.classList.add('block');
+        } else {
+          panel.classList.add('hidden');
+          panel.classList.remove('block');
+        }
+      });
+    });
+  });
+</script>
+
+<div class="gold-divider my-10"></div>

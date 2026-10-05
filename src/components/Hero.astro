@@ -1,0 +1,129 @@
+---
+import config from '../data/config.json';
+const { site, dates } = config;
+---
+
+<section id="banner" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
+  <!-- Luxury Background Graphics -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#161008] via-[#0c0906] to-[#0c0906] -z-20"></div>
+  
+  <!-- Radial golden ambient glows -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[550px] bg-gradient-to-tr from-[#9e6d19]/25 via-[#d4a34b]/20 to-transparent rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <div class="absolute -top-10 left-10 w-96 h-96 bg-[#d4a34b]/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+  <div class="absolute bottom-10 right-10 w-96 h-96 bg-[#b8860b]/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+  <!-- Decorative subtle grid -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#d4a34b0a_1px,transparent_1px),linear-gradient(to_bottom,#d4a34b0a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none -z-10"></div>
+
+  <div class="max-w-5xl mx-auto text-center relative z-10 flex flex-col items-center">
+    
+    <!-- Top Laurel / Edition Badge -->
+    <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-[#1e150b]/90 border border-[#d4a34b]/40 shadow-[0_0_20px_rgba(212,163,75,0.25)] mb-8 animate-fade-in">
+      <span class="text-lg">✨</span>
+      <span class="text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#f6dd9f]">
+        {site.heroBadge}
+      </span>
+      <span class="text-lg">✨</span>
+    </div>
+
+    <!-- Trophy / Crest Visual Motif -->
+    <div class="relative mb-6">
+      <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-2xl bg-gradient-to-br from-[#f6dd9f] via-[#d4a34b] to-[#784d12] p-[2px] shadow-[0_0_35px_rgba(212,163,75,0.45)]">
+        <div class="w-full h-full bg-[#140e08] rounded-[14px] flex items-center justify-center relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#d4a34b]/20 to-transparent"></div>
+          <svg class="w-12 h-12 text-[#f6dd9f] drop-shadow-[0_2px_10px_rgba(212,163,75,0.6)]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.34-4.8-2.52-4.8 2.52.92-5.34-3.88-3.78 5.36-.78L12 2z"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Floating edition pill -->
+      <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-0.5 rounded-full bg-[#3d270c] border border-[#d4a34b] text-[11px] font-bold text-[#fff2cc] tracking-widest uppercase shadow">
+        {site.name}
+      </div>
+    </div>
+
+    <!-- Main Title -->
+    <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
+      <span class="block text-xl sm:text-2xl md:text-3xl text-[#d4a34b] font-sans font-semibold tracking-widest uppercase mb-2">
+        {site.name}
+      </span>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] via-[#f7e7c4] to-[#e5be7a] drop-shadow-sm">
+        {site.fullName}
+      </span>
+    </h1>
+
+    <!-- Subtitle / Mission Statement -->
+    <p class="max-w-3xl text-sm sm:text-lg md:text-xl text-[#d8c8b4] font-normal leading-relaxed mb-8 sm:mb-10">
+      {site.tagline}
+    </p>
+
+    <!-- Date & Venue Indicators (Inspired by ET Healthcare Awards lcn box) -->
+    <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-10 py-3 px-6 sm:px-10 rounded-2xl bg-[#19120a]/80 border border-[#d4a34b]/30 backdrop-blur-md shadow-lg">
+      <div class="flex items-center gap-2.5 text-sm sm:text-base font-semibold text-[#f6dd9f]">
+        <svg class="w-5 h-5 text-[#d4a34b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        <span>{site.eventDateDisplay}</span>
+      </div>
+      <div class="hidden sm:block w-px h-6 bg-[#d4a34b]/40"></div>
+      <div class="flex items-center gap-2.5 text-sm sm:text-base font-semibold text-[#f6dd9f]">
+        <svg class="w-5 h-5 text-[#d4a34b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <span>{site.locationDisplay}</span>
+      </div>
+    </div>
+
+    <!-- 3 Action Buttons From Markdown -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full sm:w-auto">
+      <!-- Button 1: Nominate Now -->
+      <button 
+        type="button"
+        onclick="window.openModal('modal-nominate')"
+        class="btn-gold w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-bold tracking-wider flex items-center justify-center gap-2 group cursor-pointer shadow-gold-glow"
+      >
+        <span>Nominate Now</span>
+        <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </button>
+
+      <!-- Button 2: Download Brochure -->
+      <button 
+        type="button"
+        onclick="window.openModal('modal-brochure')"
+        class="btn-outline-gold w-full sm:w-auto px-7 py-4 rounded-xl text-sm font-semibold tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+      >
+        <svg class="w-4 h-4 text-[#d4a34b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        <span>Download Brochure</span>
+      </button>
+
+      <!-- Button 3: Become a Partner -->
+      <button 
+        type="button"
+        onclick="window.openModal('modal-partner')"
+        class="btn-outline-gold w-full sm:w-auto px-7 py-4 rounded-xl text-sm font-semibold tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+      >
+        <svg class="w-4 h-4 text-[#d4a34b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        <span>Become a Partner</span>
+      </button>
+    </div>
+
+    <!-- Urgent Notice Banner -->
+    <div class="mt-12 inline-flex items-center gap-2 text-xs sm:text-sm text-[#bda482]">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>Nominations Open: <strong class="text-[#f6dd9f]">{dates.nominationsOpen}</strong></span>
+      <span class="mx-1">•</span>
+      <span>Early Bird Closes: <strong class="text-[#f6dd9f]">{dates.earlyBirdDeadline}</strong></span>
+    </div>
+
+  </div>
+
+  <!-- Bottom Fog Edge Transition -->
+  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0c0906] to-transparent pointer-events-none"></div>
+</section>

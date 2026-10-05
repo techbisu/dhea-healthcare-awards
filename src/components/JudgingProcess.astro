@@ -1,0 +1,136 @@
+---
+const stages = [
+  {
+    step: "01",
+    title: "Entry Submission & Validation",
+    desc: "Nominees complete the digital application, uploading case studies, clinical data, accreditations, and supporting audit evidence.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>`
+  },
+  {
+    step: "02",
+    title: "Screening & Audit Verification",
+    desc: "Process Advisors and Knowledge Partners review all entries against strict eligibility criteria, veracity of claims, and compliance standards.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>`
+  },
+  {
+    step: "03",
+    title: "Independent Jury Scoring",
+    desc: "A multi-disciplinary jury panel independently reviews blind-evaluated dossiers, scoring across clinical excellence, innovation, scalability, and measurable outcomes.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>`
+  },
+  {
+    step: "04",
+    title: "Grand Jury Conclave & Finalists",
+    desc: "The Grand Jury convenes for confidential deliberations and final consensus to select the DHEA 2026 winners, revealed at the ceremony in Kolkata.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>`
+  }
+];
+
+const criteria = [
+  { name: "Clinical & Quality Excellence", weight: "30%", desc: "Demonstrable clinical outcomes, adherence to patient safety, NABH/JCI standards, and mortality/infection rate reductions." },
+  { name: "Innovation & Boundary Pushing", weight: "25%", desc: "Novelty in medical protocols, cutting-edge HealthTech integration, patented discoveries, or groundbreaking procedural innovations." },
+  { name: "Impact & Scalability", weight: "25%", desc: "Measurable positive impact on patient lives, community reach, operational efficiency, and potential for pan-India replication." },
+  { name: "Leadership & Sustainability", weight: "20%", desc: "Visionary governance, organizational culture, ethics, affordability, environmental sustainability, and talent development." }
+];
+
+const guidelines = [
+  { title: "Eligibility Period", desc: "Initiatives, projects, innovations, or achievements must have been operational or achieved between 1 January 2024 and 30 June 2026." },
+  { title: "Multiple Entries", desc: "Organizations may submit nominations in multiple distinct categories. Each submission requires a dedicated application dossier and evidence pack." },
+  { title: "Supporting Evidence", desc: "Upload verifiable data: clinical trial outcomes, patient feedback audits, accreditations, audited financial metrics, and video presentations (max 3 min)." },
+  { title: "Strict Confidentiality", desc: "All proprietary clinical formulations, patient statistics, and corporate disclosures are strictly bound by NDA and accessed exclusively by assigned jurors." }
+];
+---
+
+<section id="judging-process" class="relative py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="section-badge">Integrity & Rigor</div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+        Judging Process & <span class="gold-text-gradient">Entry Guidelines</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
+        A transparent, multi-tiered evaluation methodology designed to recognize genuine healthcare distinction and innovation.
+      </p>
+    </div>
+
+    <!-- 4 Step Process Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      {stages.map((st) => (
+        <div class="glass-card rounded-2xl p-6 border border-[#d4a34b]/20 bg-[#161009]/85 relative group hover:border-[#d4a34b]/60 transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-serif text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#f6dd9f] to-[#d4a34b]">
+              {st.step}
+            </span>
+            <div class="w-10 h-10 rounded-lg bg-[#26190c] border border-[#d4a34b]/30 flex items-center justify-center p-2" set:html={st.icon} />
+          </div>
+          <h3 class="font-serif text-base sm:text-lg font-bold text-white mb-2 group-hover:text-[#f6dd9f] transition-colors">
+            {st.title}
+          </h3>
+          <p class="text-xs text-[#bdae9c] leading-relaxed">
+            {st.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Evaluation Criteria Grid -->
+    <div class="mb-16">
+      <div class="text-center mb-10">
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
+          Evaluation <span class="gold-text-gradient">Scoring Matrix</span>
+        </h3>
+        <p class="text-xs sm:text-sm text-[#c9b8a3]">Weighted metrics reviewed by our independent jury</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {criteria.map((cr) => (
+          <div class="p-6 rounded-2xl bg-[#1a120a]/80 border border-[#d4a34b]/25">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xl sm:text-2xl font-bold text-[#f6dd9f] font-serif">{cr.weight}</span>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#2e1f0e] text-[#d4a34b] border border-[#d4a34b]/20">Weightage</span>
+            </div>
+            <h4 class="font-serif text-base font-bold text-white mb-2">{cr.name}</h4>
+            <p class="text-xs text-[#b5a38c] leading-relaxed">{cr.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Entry Guidelines Container -->
+    <div id="guidelines" class="glass-card rounded-3xl p-8 sm:p-10 border border-[#d4a34b]/30 bg-gradient-to-b from-[#181109] to-[#110d08]">
+      <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-8 border-b border-[#d4a34b]/20 gap-4">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-widest text-[#d4a34b]">Rules & Regulations</span>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">
+            Official Entry Guidelines
+          </h3>
+        </div>
+        <button 
+          type="button"
+          onclick="window.openModal('modal-brochure')"
+          class="btn-outline-gold px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider shrink-0 cursor-pointer"
+        >
+          Download Guidelines Dossier
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {guidelines.map((guide, idx) => (
+          <div class="flex gap-4 items-start">
+            <div class="w-8 h-8 rounded-lg bg-[#2e1f0e] border border-[#d4a34b]/40 flex items-center justify-center text-xs font-bold text-[#f6dd9f] shrink-0 mt-0.5">
+              {idx + 1}
+            </div>
+            <div>
+              <h4 class="font-serif text-base font-bold text-white mb-1">{guide.title}</h4>
+              <p class="text-xs sm:text-sm text-[#bdae9c] leading-relaxed">{guide.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="gold-divider my-10"></div>

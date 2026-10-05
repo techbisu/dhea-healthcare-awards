@@ -1,0 +1,124 @@
+---
+import config from '../data/config.json';
+const { site, contact } = config;
+
+const navLinks = [
+  { name: 'Home', href: '/#banner' },
+  { name: 'About DHEA', href: '/#about' },
+  { name: 'Categories', href: '/#categories' },
+  { name: 'Jury Members', href: '/#jury' },
+  { name: 'Nominate Now', href: '/#nominate' },
+  { name: 'Judging Process', href: '/#judging-process' },
+  { name: 'Entry Guidelines', href: '/#guidelines' },
+  { name: 'Sponsorship', href: '/#sponsorship' },
+  { name: 'FAQ', href: '/#faq' },
+  { name: 'News & Updates', href: '/#news' },
+  { name: 'Contact Secretariat', href: '/#contact' },
+];
+---
+
+<footer class="relative bg-[#090704] border-t border-[#d4a34b]/20 text-[#c5b59f] pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#24170a]">
+      
+      <!-- Brand & Mission Column -->
+      <div class="lg:col-span-5 space-y-4">
+        <a href="/#banner" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#f6dd9f] to-[#784d12] p-[1.5px]">
+            <div class="w-full h-full bg-[#140e08] rounded-[6px] flex items-center justify-center">
+              <span class="text-[#f6dd9f] text-lg font-bold">🏆</span>
+            </div>
+          </div>
+          <div>
+            <div class="font-serif font-black tracking-widest text-lg text-white">
+              {site.name}
+            </div>
+            <div class="text-[10px] font-semibold text-[#d4a34b] uppercase tracking-wider">
+              {site.fullName}
+            </div>
+          </div>
+        </a>
+
+        <p class="text-xs text-[#a8957f] leading-relaxed max-w-sm">
+          {site.tagline}
+        </p>
+
+        <div class="pt-2 text-xs text-[#d8c8b4] space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="text-[#d4a34b]">📍 Location:</span>
+            <span>{contact.address}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[#d4a34b]">📅 Ceremony:</span>
+            <span>{site.eventDateDisplay}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Navigation Column -->
+      <div class="lg:col-span-4">
+        <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-[#d4a34b]/20 pb-2">
+          Website Menu
+        </h4>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          {navLinks.map((link) => (
+            <a 
+              href={link.href}
+              class="hover:text-[#f6dd9f] transition-colors py-1 flex items-center gap-1.5"
+            >
+              <span class="text-[#784d12]">›</span>
+              {link.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Secretariat & Newsletter Column -->
+      <div class="lg:col-span-3 space-y-4">
+        <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-[#d4a34b]/20 pb-2">
+          Awards Secretariat
+        </h4>
+
+        <div class="text-xs space-y-2 text-[#a8957f]">
+          <p class="text-white font-semibold">{contact.secretariatName}</p>
+          <p>{contact.organization}</p>
+          <p>
+            Email: <a href={`mailto:${contact.primaryEmail}`} class="text-[#f6dd9f] hover:underline">{contact.primaryEmail}</a>
+          </p>
+          <p>Helpline: <span class="text-[#f6dd9f]">{contact.helpline}</span></p>
+          <p>
+            Web: <a href={contact.website} target="_blank" class="text-[#f6dd9f] hover:underline">{contact.websiteDisplay}</a>
+          </p>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="pt-2 flex flex-col gap-2">
+          <button 
+            type="button"
+            onclick="window.openModal('modal-nominate')"
+            class="btn-gold py-2 rounded-lg text-xs font-bold tracking-wider cursor-pointer"
+          >
+            Nominate Now
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#786754]">
+      <div>
+        © 2026 {site.fullName} ({site.name}). All Rights Reserved.
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="/#guidelines" class="hover:text-[#f6dd9f]">Entry Guidelines</a>
+        <span>•</span>
+        <a href="/#judging-process" class="hover:text-[#f6dd9f]">Confidentiality</a>
+        <span>•</span>
+        <a href="/#contact" class="hover:text-[#f6dd9f]">Support</a>
+      </div>
+    </div>
+
+  </div>
+</footer>

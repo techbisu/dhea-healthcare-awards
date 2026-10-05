@@ -1,0 +1,51 @@
+---
+import config from '../data/config.json';
+
+const defaultIcons = [
+  `<svg class="w-7 h-7 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>`,
+  `<svg class="w-7 h-7 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+  `<svg class="w-7 h-7 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>`,
+  `<svg class="w-7 h-7 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>`,
+  `<svg class="w-7 h-7 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>`
+];
+
+const stats = config.stats.map((s, idx) => ({
+  ...s,
+  icon: defaultIcons[idx % defaultIcons.length]
+}));
+---
+
+<section class="relative py-12 px-4 sm:px-6 lg:px-8 z-10 -mt-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
+      {stats.map((stat, i) => (
+        <div class="glass-card rounded-2xl p-6 relative overflow-hidden group border border-[#d4a34b]/20 bg-[#140e08]/85 hover:border-[#d4a34b]/60 transition-all duration-300">
+          <!-- Subtle top accent line -->
+          <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4a34b] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-[#22170b] border border-[#d4a34b]/30 flex items-center justify-center p-2.5 shadow-inner" set:html={stat.icon} />
+            <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-[#2a1d0d] text-[#e0b769] border border-[#d4a34b]/20">
+              0{i + 1}
+            </span>
+          </div>
+
+          <div class="font-serif text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] via-[#f7e7c4] to-[#e5be7a] mb-1">
+            {stat.value}
+          </div>
+
+          <div class="text-sm font-semibold text-[#f6dd9f] mb-1">
+            {stat.label}
+          </div>
+
+          <p class="text-xs text-[#b8a792] leading-relaxed">
+            {stat.subtext}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider my-10"></div>

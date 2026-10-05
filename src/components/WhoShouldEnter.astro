@@ -1,0 +1,112 @@
+---
+const sectors = [
+  {
+    title: "Hospitals & Healthcare Providers",
+    desc: "Multi-specialty hospitals, single-specialty hospital chains, NABH/JCI accredited health centres, and day-care surgical centres.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>`,
+    badge: "Clinical Care"
+  },
+  {
+    title: "Doctors & Healthcare Professionals",
+    desc: "Consultant physicians, surgeons, oncologists, cardiologists, pediatricians, medical researchers, and distinguished practitioners.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>`,
+    badge: "Individual"
+  },
+  {
+    title: "Diagnostic & IVF Centres",
+    desc: "NABL certified pathology laboratories, advanced radiology centres, molecular diagnostic facilities, and fertility/IVF clinics.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>`,
+    badge: "Diagnostics"
+  },
+  {
+    title: "Pharmaceutical & Biotech Companies",
+    desc: "Formulation manufacturers, API developers, vaccine innovators, oncology biopharma, and biosimilar drug research pioneers.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>`,
+    badge: "Pharma & Bio"
+  },
+  {
+    title: "CROs & SMOs",
+    desc: "Contract Research Organizations and Site Management Organizations spearheading clinical trials, pharmacovigilance, and ethics monitoring.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>`,
+    badge: "Clinical Research"
+  },
+  {
+    title: "Medical, Pharmacy & Nursing Colleges",
+    desc: "Government and private medical universities, dental colleges, pharmacy institutes, and nursing colleges driving talent development.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>`,
+    badge: "Academia"
+  },
+  {
+    title: "Healthcare Startups & HealthTech Companies",
+    desc: "Telemedicine platforms, AI diagnostics, robotic surgery tech, remote patient monitoring devices, EHR systems, and digital health innovators.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+    badge: "HealthTech & AI"
+  },
+  {
+    title: "NGOs & Public Health Organizations",
+    desc: "Non-profit trusts, healthcare foundations, rural health outreach initiatives, community health providers, and maternal health bodies.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>`,
+    badge: "Social Impact"
+  },
+  {
+    title: "CEOs, CFOs, CIOs/CTOs & Healthcare Leaders",
+    desc: "Executive visionaries steering healthcare governance, financial sustainability, digital innovation, and patient experience transformation.",
+    icon: `<svg class="w-6 h-6 text-[#f6dd9f]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+    badge: "Leadership Honors"
+  }
+];
+---
+
+<section id="who-should-enter" class="relative py-20 px-4 sm:px-6 lg:px-8 bg-[#100c08]/50">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Title -->
+    <div class="text-center mb-14">
+      <div class="section-badge">Eligibility & Categories</div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+        Who Should <span class="gold-text-gradient">Enter?</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
+        DHEA 2026 welcomes nominations from organizations, healthcare institutions, and visionary professionals across the entire healthcare continuum.
+      </p>
+    </div>
+
+    <!-- Sectors Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sectors.map((sec, i) => (
+        <div class="glass-card rounded-2xl p-6 border border-[#d4a34b]/20 bg-[#161009]/85 group hover:border-[#d4a34b]/60 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-[#2b1c0e] border border-[#d4a34b]/30 flex items-center justify-center p-2.5 shadow-inner" set:html={sec.icon} />
+              <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#26190c] text-[#f6dd9f] border border-[#d4a34b]/20">
+                {sec.badge}
+              </span>
+            </div>
+            
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-[#f6dd9f] transition-colors">
+              {sec.title}
+            </h3>
+
+            <p class="text-xs sm:text-sm text-[#bdae9c] leading-relaxed mb-6">
+              {sec.desc}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-[#2a1d0d] flex items-center justify-between">
+            <span class="text-xs font-semibold text-[#f6dd9f] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Nominate Sector →
+            </span>
+            <button 
+              type="button"
+              onclick="window.openModal('modal-nominate')"
+              class="text-xs text-[#c5b59f] hover:text-white underline cursor-pointer"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider my-10"></div>

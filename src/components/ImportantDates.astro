@@ -1,0 +1,129 @@
+---
+import config from '../data/config.json';
+const { dates } = config;
+
+const schedule = [
+  {
+    phase: "Phase 1: Entry Submissions",
+    status: "Active",
+    items: [
+      { activity: "Nominations Open", date: dates.nominationsOpen, status: "Upcoming", badge: "Kick-off", highlight: true },
+      { activity: "Early Bird Deadline", date: dates.earlyBirdDeadline, status: "Special Fee", badge: "Save 20%", highlight: true },
+      { activity: "Nomination Deadline", date: dates.nominationDeadline, status: "Standard", badge: "Standard Entry", highlight: false },
+      { activity: "Extended Deadline", date: dates.extendedDeadline, status: "Final Call", badge: "Portal Closes", highlight: false },
+    ]
+  },
+  {
+    phase: "Phase 2: Scrutiny & Evaluation",
+    status: "Upcoming",
+    items: [
+      { activity: "Screening & Verification", date: dates.screeningVerification, status: "Process Audit", badge: "Audited", highlight: false },
+      { activity: "Jury Evaluation", date: dates.juryEvaluation, status: "Scoring Round", badge: "Independent Jury", highlight: false },
+      { activity: "Shortlist Announcement", date: dates.shortlistAnnouncement, status: "Notification", badge: "Top 5 / Category", highlight: false },
+      { activity: "Presentation & Site Visits", date: dates.presentationSiteVisits, status: "Verification", badge: "Field Inspection", highlight: false },
+      { activity: "Final Jury Meeting", date: dates.finalJuryMeeting, status: "Conclave", badge: "Grand Jury", highlight: false },
+      { activity: "Finalists Announcement", date: dates.finalistsAnnouncement, status: "Release", badge: "Official List", highlight: false },
+    ]
+  },
+  {
+    phase: "Phase 3: Grand Awards Night",
+    status: "Grand Finale",
+    items: [
+      { activity: "Awards Ceremony", date: dates.awardsCeremony, status: `${config.site.locationDisplay}`, badge: "Grand Conclave", highlight: true }
+    ]
+  }
+];
+---
+
+<section id="dates" class="relative py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <div class="section-badge">Timeline & Road Map</div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+        Important <span class="gold-text-gradient">Dates & Activity Schedule</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
+        Key milestones for the Dose Daily Healthcare Excellence Awards 2026. Keep track of deadlines to submit your entries on time.
+      </p>
+    </div>
+
+    <!-- Timeline Phases Grid -->
+    <div class="space-y-8">
+      {schedule.map((section, idx) => (
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-[#d4a34b]/25 bg-[#140e08]/90">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#d4a34b]/20 gap-2">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-[#30210f] border border-[#d4a34b]/40 flex items-center justify-center text-xs font-bold text-[#f6dd9f]">
+                0{idx + 1}
+              </span>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">
+                {section.phase}
+              </h3>
+            </div>
+            <span class={`text-xs px-3 py-1 rounded-full font-semibold self-start sm:self-auto ${
+              section.status === 'Active' 
+                ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/40' 
+                : section.status === 'Grand Finale'
+                ? 'bg-amber-950/80 text-[#f6dd9f] border border-[#d4a34b]/50'
+                : 'bg-[#22170b] text-[#c5b59f] border border-[#d4a34b]/20'
+            }`}>
+              {section.status}
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {section.items.map((item) => (
+              <div class={`rounded-xl p-4 transition-all duration-200 border ${
+                item.highlight 
+                  ? 'bg-[#21160a]/90 border-[#d4a34b]/40 shadow-[0_4px_20px_rgba(212,163,75,0.12)]' 
+                  : 'bg-[#181108]/60 border-[#2a1d0d] hover:border-[#d4a34b]/30'
+              }`}>
+                <div class="flex items-start justify-between gap-2 mb-2">
+                  <span class="text-xs font-semibold px-2 py-0.5 rounded bg-[#2e1f0e] text-[#f6dd9f] border border-[#d4a34b]/20">
+                    {item.badge}
+                  </span>
+                  <span class="text-xs font-medium text-[#b5a38c]">
+                    {item.status}
+                  </span>
+                </div>
+
+                <div class="font-semibold text-sm sm:text-base text-white mb-2">
+                  {item.activity}
+                </div>
+
+                <div class="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#f6dd9f]">
+                  <svg class="w-4 h-4 text-[#d4a34b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                  <span>{item.date}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Quick Callout -->
+    <div class="mt-10 p-6 rounded-2xl bg-gradient-to-r from-[#20150b] via-[#2c1d0e] to-[#20150b] border border-[#d4a34b]/35 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <h4 class="font-serif text-lg font-bold text-white mb-1">
+          Ready to submit your nomination?
+        </h4>
+        <p class="text-xs sm:text-sm text-[#c9b8a3]">
+          Take advantage of Early Bird registration before 15 August 2026.
+        </p>
+      </div>
+      <button 
+        type="button"
+        onclick="window.openModal('modal-nominate')"
+        class="btn-gold px-6 py-3 rounded-xl text-xs font-bold tracking-wider shrink-0 cursor-pointer shadow-gold-glow"
+      >
+        Submit Nomination Now
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider my-10"></div>

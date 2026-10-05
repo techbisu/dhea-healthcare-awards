@@ -1,0 +1,80 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Modals from '../components/Modals.astro';
+import config from '../data/config.json';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = `${config.site.name} | ${config.site.fullName} | Healthcare Awards India`,
+  description = `${config.site.fullName} (${config.site.name}) - ${config.site.tagline}. ${config.site.locationDisplay}.`
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4a34b'><path d='M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.34-4.8-2.52-4.8 2.52.92-5.34-3.88-3.78 5.36-.78L12 2z'/></svg>" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Dose Daily Healthcare Excellence Awards" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#0c0906] text-[#f3ede2] antialiased selection:bg-[#d4a34b] selection:text-black">
+    <div class="relative min-h-screen flex flex-col justify-between">
+      <Navbar />
+      <main class="flex-grow">
+        <slot />
+      </main>
+      <Footer />
+      <Modals />
+    </div>
+
+    <!-- Back to top floating button -->
+    <button 
+      id="back-to-top"
+      type="button" 
+      aria-label="Back to top"
+      class="fixed bottom-6 right-6 z-40 hidden p-3 rounded-full bg-[#1e150a] border border-[#d4a34b]/50 text-[#f6dd9f] hover:bg-[#d4a34b] hover:text-black transition-all duration-300 shadow-gold-glow cursor-pointer"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+      </svg>
+    </button>
+
+    <script>
+      const backToTopBtn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          backToTopBtn?.classList.remove('hidden');
+        } else {
+          backToTopBtn?.classList.add('hidden');
+        }
+      });
+      backToTopBtn?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    </script>
+  </body>
+</html>

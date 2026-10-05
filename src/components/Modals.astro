@@ -1,0 +1,575 @@
+---
+import config from '../data/config.json';
+const { downloads, contact, site } = config;
+const allDownloads = [
+  downloads.awardsBrochure,
+  downloads.sponsorshipBrochure,
+  downloads.entryGuidelines,
+  downloads.categoryList,
+  ...(downloads.others || [])
+];
+---
+
+<!-- Modal 1: Nominate Now / Apply for Awards -->
+<div id="modal-nominate" class="modal-backdrop fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+  <div class="relative w-full max-w-2xl bg-[#140e08] border-2 border-[#d4a34b]/60 rounded-3xl p-6 sm:p-8 shadow-[0_0_50px_rgba(212,163,75,0.3)] my-8">
+    
+    <!-- Close Button -->
+    <button 
+      type="button" 
+      onclick="window.closeModal('modal-nominate')"
+      class="absolute top-5 right-5 text-[#bfae9b] hover:text-white p-2 rounded-lg bg-[#24170a] border border-[#d4a34b]/20 cursor-pointer"
+    >
+      ✕
+    </button>
+
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-2xl">🏆</span>
+      <div>
+        <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">
+          Apply for DHEA 2026 Awards
+        </h3>
+        <p class="text-xs text-[#d4a34b]">Dose Daily Healthcare Excellence Awards • December 2026, Kolkata</p>
+      </div>
+    </div>
+
+    <form id="form-nominate" class="space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Applicant / Nominee Name *
+          </label>
+          <input 
+            type="text" 
+            required 
+            placeholder="Dr. / Mr. / Ms. Name"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Official Designation *
+          </label>
+          <input 
+            type="text" 
+            required 
+            placeholder="Managing Director / Chief Medical Officer"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Organization / Hospital Name *
+          </label>
+          <input 
+            type="text" 
+            required 
+            placeholder="Healthcare Institution Name"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Sector Category *
+          </label>
+          <select class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
+            <option>Hospitals & Healthcare Providers</option>
+            <option>Doctors & Healthcare Professionals</option>
+            <option>Diagnostic & IVF Centres</option>
+            <option>Pharmaceutical & Biotech Companies</option>
+            <option>CROs & SMOs</option>
+            <option>Medical, Pharmacy & Nursing Colleges</option>
+            <option>Healthcare Startups & HealthTech Companies</option>
+            <option>NGOs & Public Health Organizations</option>
+            <option>CEOs, CFOs, CIOs/CTOs & Healthcare Leaders</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Email Address *
+          </label>
+          <input 
+            type="email" 
+            required 
+            placeholder="awards@institution.org"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Phone / WhatsApp Number *
+          </label>
+          <input 
+            type="tel" 
+            required 
+            placeholder="+91 98300 XXXXX"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+          Brief Synopsis of Nomination / Key Clinical Achievement *
+        </label>
+        <textarea 
+          rows="3" 
+          required 
+          placeholder="Summarize the initiative, innovation, patient outcomes, or organizational milestone..."
+          class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b] resize-none"
+        ></textarea>
+      </div>
+
+      <div class="p-3 rounded-xl bg-[#1c1309] border border-[#d4a34b]/20 text-[11px] text-[#bdae9c]">
+        ℹ️ Early Bird Deadline: <strong>15 August 2026</strong>. Supporting audit files & presentation slides can also be mailed to <span class="text-[#f6dd9f]">awards@dosedaily.in</span>.
+      </div>
+
+      <button 
+        type="submit" 
+        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow"
+      >
+        Submit Official Nomination Entry
+      </button>
+
+      <div id="nominate-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center">
+        ✓ Nomination Submitted! The DHEA Secretariat will send you the verification dossier and reference ID.
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal 2: Book Your Seat / Register as Delegate -->
+<div id="modal-delegate" class="modal-backdrop fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+  <div class="relative w-full max-w-xl bg-[#140e08] border-2 border-[#d4a34b]/60 rounded-3xl p-6 sm:p-8 shadow-[0_0_50px_rgba(212,163,75,0.3)] my-8">
+    <button 
+      type="button" 
+      onclick="window.closeModal('modal-delegate')"
+      class="absolute top-5 right-5 text-[#bfae9b] hover:text-white p-2 rounded-lg bg-[#24170a] border border-[#d4a34b]/20 cursor-pointer"
+    >
+      ✕
+    </button>
+
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-2xl">🎟️</span>
+      <div>
+        <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">
+          Book Your Delegate Seat
+        </h3>
+        <p class="text-xs text-[#d4a34b]">DHEA 2026 Conclave & Grand Gala Dinner • Kolkata, India</p>
+      </div>
+    </div>
+
+    <form id="form-delegate" class="space-y-4">
+      <div>
+        <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+          Full Name *
+        </label>
+        <input 
+          type="text" 
+          required 
+          placeholder="Delegate Full Name"
+          class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Email *
+          </label>
+          <input 
+            type="email" 
+            required 
+            placeholder="name@company.com"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Phone *
+          </label>
+          <input 
+            type="tel" 
+            required 
+            placeholder="+91 98765 43210"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Pass Type *
+          </label>
+          <select class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
+            <option>Individual VIP Delegate Pass</option>
+            <option>Corporate Table of 6</option>
+            <option>Corporate Table of 10</option>
+            <option>Nominee Complimentary Delegate Pass (1 per entry)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Organization / Hospital *
+          </label>
+          <input 
+            type="text" 
+            required 
+            placeholder="Institution Name"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+      </div>
+
+      <button 
+        type="submit" 
+        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow"
+      >
+        Confirm Delegate Seat Reservation
+      </button>
+
+      <div id="delegate-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center">
+        ✓ Delegate Request Received! The secretariat will issue your confirmation pass and event badge details.
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal 3: Download Brochure -->
+<div id="modal-brochure" class="modal-backdrop fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+  <div class="relative w-full max-w-lg bg-[#140e08] border-2 border-[#d4a34b]/60 rounded-3xl p-6 sm:p-8 shadow-[0_0_50px_rgba(212,163,75,0.3)] my-8">
+    <button 
+      type="button" 
+      onclick="window.closeModal('modal-brochure')"
+      class="absolute top-5 right-5 text-[#bfae9b] hover:text-white p-2 rounded-lg bg-[#24170a] border border-[#d4a34b]/20 cursor-pointer"
+    >
+      ✕
+    </button>
+
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-2xl">📑</span>
+      <div>
+        <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">
+          Download Awards Brochure
+        </h3>
+        <p class="text-xs text-[#d4a34b]">Complete Guide to DHEA 2026 Categories & Guidelines</p>
+      </div>
+    </div>
+
+    <form id="form-brochure" class="space-y-4">
+      <div>
+        <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+          Select Document to Download *
+        </label>
+        <select 
+          id="brochure-select"
+          class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/40 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+        >
+          {allDownloads.map((doc) => (
+            <option 
+              value={doc.id}
+              data-filepath={doc.filePath}
+              data-filename={doc.fileName}
+              data-filesize={doc.fileSize}
+              data-title={doc.title}
+              data-description={doc.description}
+            >
+              {doc.title} ({doc.fileSize}) {doc.badge ? `• ${doc.badge}` : ''}
+            </option>
+          ))}
+        </select>
+        <p id="brochure-doc-desc" class="text-[11px] text-[#b5a38c] mt-1.5 leading-snug">
+          {downloads.awardsBrochure.description}
+        </p>
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+          Full Name *
+        </label>
+        <input 
+          type="text" 
+          required 
+          placeholder="Dr. / Mr. Name"
+          class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+        />
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+          Email Address (Brochure download copy will be sent here) *
+        </label>
+        <input 
+          type="email" 
+          required 
+          placeholder="name@hospital.com"
+          class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+        />
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+          Phone Number *
+        </label>
+        <input 
+          type="tel" 
+          required 
+          placeholder="+91 98XXXXXXXX"
+          class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+        />
+      </div>
+
+      <button 
+        type="submit" 
+        id="btn-brochure-submit"
+        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow flex items-center justify-center gap-2"
+      >
+        <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        <span id="brochure-btn-label">Download PDF Document</span>
+      </button>
+
+      <!-- Direct Instant Download Link -->
+      <div class="pt-1 flex items-center justify-between text-[11px] border-t border-[#2a1d0d]">
+        <span class="text-[#a4917b]">Instant direct link:</span>
+        <a 
+          id="brochure-direct-link"
+          href={downloads.awardsBrochure.filePath}
+          download={downloads.awardsBrochure.fileName}
+          class="text-[#f6dd9f] hover:underline flex items-center gap-1 font-semibold"
+        >
+          <span>Direct Download ({downloads.awardsBrochure.fileSize})</span>
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </a>
+      </div>
+
+      <div id="brochure-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center">
+        ✓ PDF download started! A confirmation copy has also been sent to your email.
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal 4: Become a Partner / Sponsorship Inquiries -->
+<div id="modal-partner" class="modal-backdrop fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+  <div class="relative w-full max-w-xl bg-[#140e08] border-2 border-[#d4a34b]/60 rounded-3xl p-6 sm:p-8 shadow-[0_0_50px_rgba(212,163,75,0.3)] my-8">
+    <button 
+      type="button" 
+      onclick="window.closeModal('modal-partner')"
+      class="absolute top-5 right-5 text-[#bfae9b] hover:text-white p-2 rounded-lg bg-[#24170a] border border-[#d4a34b]/20 cursor-pointer"
+    >
+      ✕
+    </button>
+
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-2xl">🤝</span>
+      <div>
+        <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">
+          Become a Partner / Sponsor
+        </h3>
+        <p class="text-xs text-[#d4a34b]">Brand Alliances & Exhibition Opportunities • DHEA 2026</p>
+      </div>
+    </div>
+
+    <form id="form-partner" class="space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Contact Person Name *
+          </label>
+          <input 
+            type="text" 
+            required 
+            placeholder="Your Name"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Company / Organization *
+          </label>
+          <input 
+            type="text" 
+            required 
+            placeholder="Brand Name"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Business Email *
+          </label>
+          <input 
+            type="email" 
+            required 
+            placeholder="partnerships@company.com"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+            Mobile Number *
+          </label>
+          <input 
+            type="tel" 
+            required 
+            placeholder="+91 98XXXXXXXX"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+          Desired Partnership Package *
+        </label>
+        <select class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
+          <option>Title Sponsor</option>
+          <option>Powered By Sponsor</option>
+          <option>Associate Sponsor</option>
+          <option>Category Sponsor</option>
+          <option>Supporting Partner</option>
+          <option>Custom Exhibition / Booth Package</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+          Specific Branding or Exhibition Objectives
+        </label>
+        <textarea 
+          rows="3" 
+          placeholder="Tell us about your brand's healthcare objectives, key target markets, or questions..."
+          class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b] resize-none"
+        ></textarea>
+      </div>
+
+      <button 
+        type="submit" 
+        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow"
+      >
+        Submit Partnership Expression of Interest
+      </button>
+
+      <div id="partner-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center">
+        ✓ Thank you! Our brand alliance director will contact you directly with customized sponsorship inventory.
+      </div>
+    </form>
+  </div>
+</div>
+
+<script is:inline>
+  window.openModal = function(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeModal = function(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Open brochure modal with optional preselected document ID
+  window.openBrochureModal = function(docId) {
+    window.openModal('modal-brochure');
+    const select = document.getElementById('brochure-select');
+    if (select && docId) {
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value === docId) {
+          select.selectedIndex = i;
+          select.dispatchEvent(new Event('change'));
+          break;
+        }
+      }
+    }
+  };
+
+  // Close when clicking outside content
+  document.querySelectorAll('.modal-backdrop').forEach((backdrop) => {
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) {
+        backdrop.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // Dynamic brochure selection listener
+  const brochureSelect = document.getElementById('brochure-select');
+  if (brochureSelect) {
+    brochureSelect.addEventListener('change', () => {
+      const opt = brochureSelect.options[brochureSelect.selectedIndex];
+      if (opt) {
+        const descEl = document.getElementById('brochure-doc-desc');
+        const directLink = document.getElementById('brochure-direct-link');
+        const btnLabel = document.getElementById('brochure-btn-label');
+        if (descEl) descEl.textContent = opt.dataset.description || '';
+        if (directLink) {
+          directLink.href = opt.dataset.filepath || '';
+          directLink.setAttribute('download', opt.dataset.filename || 'document.pdf');
+          const directSpan = directLink.querySelector('span');
+          if (directSpan) directSpan.textContent = `Direct Download (${opt.dataset.filesize || 'PDF'})`;
+        }
+        if (btnLabel) {
+          btnLabel.textContent = `Download ${opt.dataset.title || 'PDF'}`;
+        }
+      }
+    });
+  }
+
+  // Handle submissions with actual PDF trigger for brochure
+  ['form-nominate', 'form-delegate', 'form-brochure', 'form-partner'].forEach((formId) => {
+    const form = document.getElementById(formId);
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // If downloading brochure, trigger physical file download
+        if (formId === 'form-brochure') {
+          const select = document.getElementById('brochure-select');
+          const opt = select ? select.options[select.selectedIndex] : null;
+          const filePath = opt ? opt.dataset.filepath : '/downloads/DHEA-2026-Awards-Brochure.pdf';
+          const fileName = opt ? opt.dataset.filename : 'DHEA-2026-Awards-Brochure.pdf';
+
+          const triggerLink = document.createElement('a');
+          triggerLink.href = filePath;
+          triggerLink.download = fileName;
+          triggerLink.style.display = 'none';
+          document.body.appendChild(triggerLink);
+          triggerLink.click();
+          setTimeout(() => {
+            document.body.removeChild(triggerLink);
+          }, 150);
+        }
+
+        const successId = formId.replace('form-', '') + '-success';
+        const successBox = document.getElementById(successId);
+        if (successBox) successBox.classList.remove('hidden');
+        setTimeout(() => {
+          window.closeModal(formId.replace('form-', 'modal-'));
+          form.reset();
+          if (successBox) successBox.classList.add('hidden');
+        }, 2200);
+      });
+    }
+  });
+</script>

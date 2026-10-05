@@ -1,0 +1,225 @@
+---
+import config from '../data/config.json';
+const { site, contact } = config;
+---
+
+<section id="contact" class="relative py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="section-badge">Get In Touch</div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+        Contact <span class="gold-text-gradient">Secretariat</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
+        Connect with the {site.name} Awards Organizing Committee for nomination support, delegate registrations, and partnership inquiries.
+      </p>
+    </div>
+
+    <!-- Contact Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Left Column: Secretariat Information -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <div class="glass-card rounded-3xl p-8 border border-[#d4a34b]/30 bg-gradient-to-b from-[#1c130a] to-[#120d08] shadow-xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2e1f0e] border border-[#d4a34b]/30 text-xs font-bold text-[#f6dd9f] uppercase tracking-wider mb-4">
+            Official Secretariat
+          </div>
+
+          <h3 class="font-serif text-2xl font-bold text-white mb-1">
+            {contact.secretariatName}
+          </h3>
+          <p class="text-xs sm:text-sm font-medium text-[#d4a34b] mb-6">
+            {contact.organization}
+          </p>
+
+          <div class="space-y-5 text-xs sm:text-sm text-[#ded1be]">
+            <!-- Email -->
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-[#2b1c0e] border border-[#d4a34b]/30 flex items-center justify-center p-2.5 text-[#f6dd9f] shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="block text-[11px] uppercase tracking-wider text-[#9a866f]">Email Inquiries</span>
+                <a href={`mailto:${contact.primaryEmail}`} class="font-semibold text-white hover:text-[#f6dd9f] transition-colors">
+                  {contact.primaryEmail}
+                </a>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-[#2b1c0e] border border-[#d4a34b]/30 flex items-center justify-center p-2.5 text-[#f6dd9f] shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="block text-[11px] uppercase tracking-wider text-[#9a866f]">Helpline & WhatsApp</span>
+                <span class="font-semibold text-white">{contact.helpline}</span>
+                <p class="text-[11px] text-[#9a866f]">{contact.operatingHours}</p>
+              </div>
+            </div>
+
+            <!-- Website -->
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-[#2b1c0e] border border-[#d4a34b]/30 flex items-center justify-center p-2.5 text-[#f6dd9f] shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                </svg>
+              </div>
+              <div>
+                <span class="block text-[11px] uppercase tracking-wider text-[#9a866f]">Official Website</span>
+                <a href={contact.website} target="_blank" class="font-semibold text-white hover:text-[#f6dd9f] transition-colors">
+                  {contact.websiteDisplay}
+                </a>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-[#2b1c0e] border border-[#d4a34b]/30 flex items-center justify-center p-2.5 text-[#f6dd9f] shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="block text-[11px] uppercase tracking-wider text-[#9a866f]">Host City & Venue</span>
+                <span class="font-semibold text-white">{site.venue || contact.address}</span>
+                <p class="text-[11px] text-[#9a866f]">Grand Conclave & Awards Ceremony ({site.eventDateDisplay})</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Help Note -->
+        <div class="p-6 rounded-2xl bg-[#140e08]/90 border border-[#d4a34b]/20 text-xs text-[#bdae9c]">
+          <p class="font-bold text-[#f6dd9f] mb-1">Nomination Assistance Desk</p>
+          <p>Need support choosing your award category or uploading clinical audit documents? Reach out to our dedicated advisory desk.</p>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Contact Form -->
+      <div class="lg:col-span-7">
+        <div class="glass-card rounded-3xl p-8 sm:p-10 border border-[#d4a34b]/30 bg-gradient-to-b from-[#181109] to-[#110d08] shadow-xl">
+          <h3 class="font-serif text-2xl font-bold text-white mb-2">
+            Send Secretariat an Inquiry
+          </h3>
+          <p class="text-xs sm:text-sm text-[#bdae9c] mb-6">
+            Fill out the form below. Our awards coordinator will revert within 24 business hours.
+          </p>
+
+          <form id="contact-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1.5">
+                  Full Name *
+                </label>
+                <input 
+                  type="text" 
+                  required
+                  placeholder="Dr. / Mr. / Ms. Full Name"
+                  class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white placeholder-[#786754] text-xs focus:outline-none focus:border-[#d4a34b] transition-colors"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1.5">
+                  Official Email *
+                </label>
+                <input 
+                  type="email" 
+                  required
+                  placeholder="name@organization.com"
+                  class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white placeholder-[#786754] text-xs focus:outline-none focus:border-[#d4a34b] transition-colors"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1.5">
+                  Mobile Number *
+                </label>
+                <input 
+                  type="tel" 
+                  required
+                  placeholder="+91 98765 43210"
+                  class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white placeholder-[#786754] text-xs focus:outline-none focus:border-[#d4a34b] transition-colors"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1.5">
+                  Organization / Hospital Name *
+                </label>
+                <input 
+                  type="text" 
+                  required
+                  placeholder="Hospital, Pharma or Company Name"
+                  class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white placeholder-[#786754] text-xs focus:outline-none focus:border-[#d4a34b] transition-colors"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1.5">
+                Inquiry Type *
+              </label>
+              <select 
+                class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white text-xs focus:outline-none focus:border-[#d4a34b] transition-colors"
+              >
+                <option value="nomination">Award Nomination Assistance</option>
+                <option value="delegate">Delegate Registration & Table Booking</option>
+                <option value="sponsorship">Sponsorship & Partnership Package</option>
+                <option value="jury">Jury or Academic Collaboration</option>
+                <option value="media">Media & Press Accreditation</option>
+                <option value="other">General Secretariat Query</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1.5">
+                Message / Queries *
+              </label>
+              <textarea 
+                rows="4"
+                required
+                placeholder="Please outline your queries regarding nominations, delegate passes, or sponsorship..."
+                class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white placeholder-[#786754] text-xs focus:outline-none focus:border-[#d4a34b] transition-colors resize-none"
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit"
+              class="btn-gold w-full py-4 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow"
+            >
+              Submit Message to Secretariat
+            </button>
+
+            <div id="contact-success" class="hidden p-3 rounded-xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-300 text-xs text-center">
+              ✓ Thank you! Your message has been routed to DHEA Secretariat (awards@dosedaily.in). We will get back to you shortly.
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const contactForm = document.getElementById('contact-form');
+  const successBox = document.getElementById('contact-success');
+
+  contactForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    successBox?.classList.remove('hidden');
+    contactForm.reset();
+  });
+</script>

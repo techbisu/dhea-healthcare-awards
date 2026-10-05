@@ -1,0 +1,79 @@
+---
+const newsItems = [
+  {
+    date: "15 July 2026",
+    tag: "Nomination Call",
+    title: "Official Nominations Open for Dose Daily Healthcare Excellence Awards 2026",
+    summary: "Healthcare institutions, hospitals, pharma pioneers, and clinicians across India are invited to submit their groundbreaking achievements for DHEA 2026 Kolkata.",
+    readTime: "3 min read"
+  },
+  {
+    date: "28 July 2026",
+    tag: "Jury Announcement",
+    title: "DHEA 2026 Unveils 50+ Eminent Jury Members Across Clinical Care & BioPharma",
+    summary: "Eminent medical directors, former DGHS authorities, and healthtech visionaries convene to supervise a transparent, double-blind audit evaluation process.",
+    readTime: "4 min read"
+  },
+  {
+    date: "05 August 2026",
+    tag: "Early Bird Notice",
+    title: "Early Bird Nomination Deadline Closing on 15 August 2026",
+    summary: "Healthcare organizations are urged to finalize early submissions to benefit from discounted application tiers and priority preliminary screening.",
+    readTime: "2 min read"
+  }
+];
+---
+
+<section id="news" class="relative py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="section-badge">Latest Updates</div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+        News & <span class="gold-text-gradient">Announcements</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
+        Stay updated with the latest press releases, jury additions, and milestone deadlines for DHEA 2026.
+      </p>
+    </div>
+
+    <!-- News Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {newsItems.map((news) => (
+        <article class="glass-card rounded-2xl p-6 sm:p-7 border border-[#d4a34b]/20 bg-[#161009]/85 group hover:border-[#d4a34b]/60 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#2c1d0e] text-[#f6dd9f] border border-[#d4a34b]/20">
+                {news.tag}
+              </span>
+              <span class="text-[11px] text-[#9a866f]">
+                {news.date}
+              </span>
+            </div>
+
+            <h3 class="font-serif text-base sm:text-lg font-bold text-white group-hover:text-[#f6dd9f] transition-colors mb-3 leading-snug">
+              {news.title}
+            </h3>
+
+            <p class="text-xs sm:text-sm text-[#bdae9c] leading-relaxed mb-6">
+              {news.summary}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-[#2a1d0d] flex items-center justify-between text-xs">
+            <span class="text-[#a8957f]">{news.readTime}</span>
+            <button 
+              type="button" 
+              onclick="window.openModal('modal-brochure')"
+              class="font-semibold text-[#f6dd9f] hover:underline cursor-pointer flex items-center gap-1"
+            >
+              Read Release →
+            </button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider my-10"></div>

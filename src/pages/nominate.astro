@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NominateCTA from '../components/NominateCTA.astro';
+import ImportantDates from '../components/ImportantDates.astro';
+import JudgingProcess from '../components/JudgingProcess.astro';
+---
+
+<Layout title="Nominate Now | Apply for Awards | DHEA 2026">
+  <div class="py-12 bg-gradient-to-b from-[#181109] to-[#0c0906] border-b border-[#d4a34b]/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="section-badge">Nominations Open</div>
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+        Nominate for <span class="gold-text-gradient">DHEA 2026</span>
+      </h1>
+      <p class="max-w-3xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
+        Recognize your achievements and compete for India's most prestigious healthcare awards. Early Bird deadline: 15 August 2026.
+      </p>
+    </div>
+  </div>
+  <NominateCTA />
+  <ImportantDates />
+  <JudgingProcess />
+</Layout>

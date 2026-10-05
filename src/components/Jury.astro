@@ -1,0 +1,73 @@
+---
+import config from '../data/config.json';
+const juryMembers = config.members.juryMembers;
+---
+
+<section id="jury" class="relative py-20 px-4 sm:px-6 lg:px-8 bg-[#100c08]/60">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Title -->
+    <div class="text-center mb-14">
+      <div class="section-badge">Independent & Unbiased</div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+        Eminent <span class="gold-text-gradient">Jury Members</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
+        Our 50+ distinguished jury members comprise India's most respected medical directors, clinicians, pharmaceutical pioneers, and policy authorities.
+      </p>
+    </div>
+
+    <!-- Jury Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {juryMembers.map((member) => (
+        <div class="glass-card rounded-2xl overflow-hidden border border-[#d4a34b]/20 bg-[#161009]/90 group hover:border-[#d4a34b]/70 transition-all duration-300 flex flex-col">
+          <!-- Photo container with gold vignette -->
+          <div class="relative h-64 overflow-hidden bg-[#1f150b]">
+            <img 
+              src={member.image} 
+              alt={member.name} 
+              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 filter grayscale contrast-125 group-hover:grayscale-0"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#161009] via-transparent to-transparent"></div>
+            <span class="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#1b1309]/90 text-[#f6dd9f] border border-[#d4a34b]/40 backdrop-blur-sm">
+              {member.badge}
+            </span>
+          </div>
+
+          <!-- Member Details -->
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-lg font-bold text-white group-hover:text-[#f6dd9f] transition-colors mb-1">
+                {member.name}
+              </h3>
+              <p class="text-xs font-semibold text-[#d4a34b] mb-1.5 leading-snug">
+                {member.role}
+              </p>
+              <p class="text-[11px] text-[#b5a38c] leading-relaxed">
+                {member.institution}
+              </p>
+            </div>
+            
+            <div class="mt-4 pt-3 border-t border-[#2a1d0d] flex items-center justify-between text-[11px] text-[#9a866f]">
+              <span>DHEA 2026 Panel</span>
+              <span class="text-[#e2b45a]">Verified Jury ★</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Jury Process Guarantee -->
+    <div class="mt-12 text-center p-6 rounded-2xl bg-[#1a120a]/80 border border-[#d4a34b]/25 max-w-3xl mx-auto">
+      <div class="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-[#f6dd9f] mb-2">
+        <span>🔒 Confidential & Independent Scrutiny</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#bdae9c]">
+        All evaluations follow a double-blind, conflict-of-interest audited scoring matrix supervised by independent knowledge partners and process auditors.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<div class="gold-divider my-10"></div>

@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Categories from '../components/Categories.astro';
+import WhoShouldEnter from '../components/WhoShouldEnter.astro';
+import NominateCTA from '../components/NominateCTA.astro';
+---
+
+<Layout title="Award Categories | DHEA 2026 | National, Regional & State Awards">
+  <div class="py-12 bg-gradient-to-b from-[#181109] to-[#0c0906] border-b border-[#d4a34b]/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="section-badge">100+ Categories</div>
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+        Official <span class="gold-text-gradient">Award Categories</span>
+      </h1>
+      <p class="max-w-3xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
+        Explore the comprehensive list of 100+ awards across hospitals, individual doctors, pharmaceuticals, diagnostics, and digital health.
+      </p>
+    </div>
+  </div>
+  <Categories />
+  <WhoShouldEnter />
+  <NominateCTA />
+</Layout>

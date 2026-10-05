@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DHEA Site and Member Configuration",
+  "description": "Schema for configuring event metadata, member images & details, and downloadable PDF files.",
+  "type": "object",
+  "required": ["site", "contact", "dates", "downloads", "members"],
+  "properties": {
+    "site": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "fullName": { "type": "string" },
+        "shortName": { "type": "string" },
+        "edition": { "type": "string" },
+        "tagline": { "type": "string" },
+        "heroBadge": { "type": "string" },
+        "eventMonth": { "type": "string" },
+        "eventDateDisplay": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type": "string" },
+        "locationDisplay": { "type": "string" },
+        "venue": { "type": "string" },
+        "portalStatus": { "type": "string" },
+        "nominateUrl": { "type": "string" }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "secretariatName": { "type": "string" },
+        "organization": { "type": "string" },
+        "primaryEmail": { "type": "string" },
+        "supportEmail": { "type": "string" },
+        "sponsorshipEmail": { "type": "string" },
+        "helpline": { "type": "string" },
+        "phone": { "type": "string" },
+        "website": { "type": "string" },
+        "websiteDisplay": { "type": "string" },
+        "address": { "type": "string" },
+        "operatingHours": { "type": "string" }
+      }
+    },
+    "dates": {
+      "type": "object",
+      "properties": {
+        "nominationsOpen": { "type": "string" },
+        "earlyBirdDeadline": { "type": "string" },
+        "nominationDeadline": { "type": "string" },
+        "extendedDeadline": { "type": "string" },
+        "screeningVerification": { "type": "string" },
+        "juryEvaluation": { "type": "string" },
+        "shortlistAnnouncement": { "type": "string" },
+        "presentationSiteVisits": { "type": "string" },
+        "finalJuryMeeting": { "type": "string" },
+        "finalistsAnnouncement": { "type": "string" },
+        "awardsCeremony": { "type": "string" }
+      }
+    },
+    "downloads": {
+      "type": "object",
+      "properties": {
+        "awardsBrochure": { "$ref": "#/definitions/downloadItem" },
+        "sponsorshipBrochure": { "$ref": "#/definitions/downloadItem" },
+        "entryGuidelines": { "$ref": "#/definitions/downloadItem" },
+        "categoryList": { "$ref": "#/definitions/downloadItem" },
+        "others": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/downloadItem" }
+        }
+      }
+    },
+    "members": {
+      "type": "object",
+      "properties": {
+        "juryMembers": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/memberItem" }
+        },
+        "advisoryBoard": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/memberItem" }
+        },
+        "secretariat": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "role": { "type": "string" },
+              "email": { "type": "string" },
+              "phone": { "type": "string" },
+              "location": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "downloadItem": {
+      "type": "object",
+      "required": ["title", "fileName", "filePath"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "fileName": { "type": "string" },
+        "filePath": { "type": "string", "description": "Absolute URL or relative web path like /downloads/file.pdf" },
+        "fileSize": { "type": "string" },
+        "fileType": { "type": "string" },
+        "version": { "type": "string" },
+        "badge": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "memberItem": {
+      "type": "object",
+      "required": ["name", "role", "institution", "image"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "institution": { "type": "string" },
+        "badge": { "type": "string" },
+        "panel": { "type": "string" },
+        "verified": { "type": "boolean" },
+        "image": { "type": "string", "description": "Web URL or local path to member's photo" },
+        "localImagePath": { "type": "string", "description": "Optional local asset path" },
+        "bio": { "type": "string" },
+        "category": { "type": "string" },
+        "social": {
+          "type": "object",
+          "properties": {
+            "linkedin": { "type": "string" },
+            "twitter": { "type": "string" },
+            "website": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

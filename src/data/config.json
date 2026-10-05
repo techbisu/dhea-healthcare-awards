@@ -1,0 +1,344 @@
+{
+  "$schema": "./config.schema.json",
+  "site": {
+    "name": "DHEA 2026",
+    "fullName": "Dose Daily Healthcare Excellence Awards",
+    "shortName": "Healthcare Excellence Awards",
+    "edition": "2026",
+    "tagline": "India's Premier Platform Recognizing Excellence in Healthcare, Pharma, Clinical Research, Diagnostics, Education & Innovation",
+    "heroBadge": "INDIA'S PREMIER HEALTHCARE RECOGNITION PLATFORM",
+    "eventMonth": "December 2026",
+    "eventDateDisplay": "December 2026",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "country": "India",
+    "locationDisplay": "Kolkata, India",
+    "venue": "Biswa Bangla Convention Centre, New Town, Kolkata",
+    "portalStatus": "Nominations Open",
+    "nominateUrl": "/#nominate"
+  },
+
+  "contact": {
+    "secretariatName": "DHEA Awards Secretariat",
+    "organization": "Dose Daily Healthcare Excellence Awards",
+    "primaryEmail": "awards@dosedaily.in",
+    "supportEmail": "support@dosedaily.in",
+    "sponsorshipEmail": "partnerships@dosedaily.in",
+    "helpline": "+91 98300 XXXXX",
+    "phone": "+91-XXXXXXXXXX",
+    "website": "https://www.dosedaily.in",
+    "websiteDisplay": "www.dosedaily.in",
+    "address": "Kolkata, West Bengal, India",
+    "operatingHours": "Monday to Saturday, 10:00 AM – 6:30 PM IST"
+  },
+
+  "dates": {
+    "nominationsOpen": "15 July 2026",
+    "earlyBirdDeadline": "15 August 2026",
+    "nominationDeadline": "15 September 2026",
+    "extendedDeadline": "30 September 2026",
+    "screeningVerification": "October 2026",
+    "juryEvaluation": "October – November 2026",
+    "shortlistAnnouncement": "November 2026",
+    "presentationSiteVisits": "November 2026",
+    "finalJuryMeeting": "November 2026",
+    "finalistsAnnouncement": "November 2026",
+    "awardsCeremony": "December 2026"
+  },
+
+  "stats": [
+    {
+      "value": "100+",
+      "label": "Award Categories",
+      "subtext": "Covering 10+ medical & pharma verticals"
+    },
+    {
+      "value": "National, Regional",
+      "label": "& State Awards",
+      "subtext": "Honoring pan-India healthcare excellence"
+    },
+    {
+      "value": "50+",
+      "label": "Jury Members",
+      "subtext": "Eminent clinicians, directors & scientists"
+    },
+    {
+      "value": "500+",
+      "label": "Nominations Expected",
+      "subtext": "From premier hospitals, pharma & healthtech"
+    },
+    {
+      "value": "1000+",
+      "label": "Industry Leaders",
+      "subtext": "C-suite executives & medical visionaries"
+    }
+  ],
+
+  "downloads": {
+    "awardsBrochure": {
+      "id": "awards-brochure",
+      "title": "Official Awards Brochure & Entry Kit",
+      "subtitle": "Complete Guide to DHEA 2026 Categories & Guidelines",
+      "fileName": "DHEA-2026-Awards-Brochure.pdf",
+      "filePath": "/downloads/DHEA-2026-Awards-Brochure.pdf",
+      "fileSize": "3.4 MB",
+      "fileType": "PDF",
+      "version": "2026.1",
+      "badge": "Primary Brochure",
+      "description": "Exhaustive brochure covering 100+ categories, eligibility criteria, submission format, jury profile, and gala awards night details."
+    },
+    "sponsorshipBrochure": {
+      "id": "sponsorship-brochure",
+      "title": "Sponsorship & Brand Alliance Kit",
+      "subtitle": "Brand Visibility, Exhibition Booths & VIP Packages",
+      "fileName": "DHEA-2026-Sponsorship-Brochure.pdf",
+      "filePath": "/downloads/DHEA-2026-Sponsorship-Brochure.pdf",
+      "fileSize": "4.8 MB",
+      "fileType": "PDF",
+      "version": "2026.1",
+      "badge": "Sponsorship Kit",
+      "description": "Complete breakdown of Title, Powered By, Associate, Category Sponsorship inventory, exhibition floor layout, and delegate tables."
+    },
+    "entryGuidelines": {
+      "id": "entry-guidelines",
+      "title": "Official Entry Guidelines & Dossier Preparation Guide",
+      "subtitle": "Scoring Matrix, Documentation Rules & Verification Process",
+      "fileName": "DHEA-2026-Entry-Guidelines.pdf",
+      "filePath": "/downloads/DHEA-2026-Entry-Guidelines.pdf",
+      "fileSize": "2.1 MB",
+      "fileType": "PDF",
+      "version": "2026.1",
+      "badge": "Guidelines",
+      "description": "Step-by-step instructions on compiling nomination dossiers, clinical proof submissions, word limits, and conflict-of-interest guidelines."
+    },
+    "categoryList": {
+      "id": "category-list",
+      "title": "Full 100+ Award Categories Directory",
+      "subtitle": "Exhaustive Listing Across All Healthcare & Medical Sectors",
+      "fileName": "DHEA-2026-Categories-Directory.pdf",
+      "filePath": "/downloads/DHEA-2026-Categories-Directory.pdf",
+      "fileSize": "1.5 MB",
+      "fileType": "PDF",
+      "version": "2026.1",
+      "badge": "Categories",
+      "description": "Full directory of all categories across Hospitals, Doctors, Diagnostics, Pharma, Biotech, CROs, Nursing/Pharmacy Colleges, and Startups."
+    },
+    "others": [
+      {
+        "id": "offline-nomination-form",
+        "title": "Offline Nomination Entry Form (Fillable PDF)",
+        "subtitle": "For organizations submitting via postal or email dossier",
+        "fileName": "DHEA-2026-Offline-Nomination-Form.pdf",
+        "filePath": "/downloads/DHEA-2026-Offline-Nomination-Form.pdf",
+        "fileSize": "1.2 MB",
+        "fileType": "PDF",
+        "badge": "Nomination Form",
+        "description": "Printable and digital fillable PDF form for institutional offline applications with authorized signatory endorsement."
+      },
+      {
+        "id": "delegate-registration-form",
+        "title": "Delegate Pass Booking & Corporate Table Form",
+        "subtitle": "Individual VIP passes and corporate tables of 6 or 10",
+        "fileName": "DHEA-2026-Delegate-Registration.pdf",
+        "filePath": "/downloads/DHEA-2026-Delegate-Registration.pdf",
+        "fileSize": "980 KB",
+        "fileType": "PDF",
+        "badge": "Delegate Pass",
+        "description": "Registration form for attending the DHEA 2026 Healthcare Conclave and Grand Gala Dinner in Kolkata."
+      },
+      {
+        "id": "jury-code-of-conduct",
+        "title": "Jury Charter & Code of Conduct",
+        "subtitle": "Independent evaluation protocol & conflict of interest policy",
+        "fileName": "DHEA-2026-Jury-Charter.pdf",
+        "filePath": "/downloads/DHEA-2026-Jury-Charter.pdf",
+        "fileSize": "850 KB",
+        "fileType": "PDF",
+        "badge": "Governance",
+        "description": "Independent evaluation framework, confidentiality commitments, and double-blind scoring matrix."
+      }
+    ]
+  },
+
+  "members": {
+    "juryMembers": [
+      {
+        "id": "dr-ak-mukherjee",
+        "name": "Dr. A. K. Mukherjee",
+        "role": "Former Director General of Health Services (DGHS)",
+        "institution": "Ministry of Health & Family Welfare, Govt. of India",
+        "badge": "Jury Chair",
+        "panel": "DHEA 2026 Panel",
+        "verified": true,
+        "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400",
+        "localImagePath": "/images/members/dr-ak-mukherjee.jpg",
+        "bio": "Distinguished healthcare policy veteran who spearheaded national public health guidelines and hospital accreditations across India.",
+        "category": "Leadership & Public Policy",
+        "social": {
+          "linkedin": "https://linkedin.com",
+          "website": "https://mohfw.gov.in"
+        }
+      },
+      {
+        "id": "dr-sunita-sen-sharma",
+        "name": "Dr. Sunita Sen Sharma",
+        "role": "Senior Consultant & Head of Cardiology",
+        "institution": "Apollo Multispeciality Hospitals, Kolkata",
+        "badge": "Clinical Jury",
+        "panel": "DHEA 2026 Panel",
+        "verified": true,
+        "image": "https://images.unsplash.com/photo-1594824813569-b5f7e754ef80?auto=format&fit=crop&q=80&w=400",
+        "localImagePath": "/images/members/dr-sunita-sen-sharma.jpg",
+        "bio": "Pioneering interventional cardiologist with over 28 years of clinical excellence, having performed 10,000+ coronary interventions.",
+        "category": "Clinical & Cardiology",
+        "social": {
+          "linkedin": "https://linkedin.com"
+        }
+      },
+      {
+        "id": "prof-dr-bn-ganguly",
+        "name": "Prof. (Dr.) B. N. Ganguly",
+        "role": "Former Vice Chancellor & Professor Emeritus",
+        "institution": "West Bengal University of Health Sciences",
+        "badge": "Academic Jury",
+        "panel": "DHEA 2026 Panel",
+        "verified": true,
+        "image": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400",
+        "localImagePath": "/images/members/prof-bn-ganguly.jpg",
+        "bio": "Eminent medical academician and former Vice Chancellor fostering clinical education reform and post-graduate medical research.",
+        "category": "Medical Academics & Research",
+        "social": {
+          "linkedin": "https://linkedin.com"
+        }
+      },
+      {
+        "id": "dr-rajeshwar-pillai",
+        "name": "Dr. Rajeshwar Pillai",
+        "role": "President - R&D and Global Clinical Trials",
+        "institution": "Premier Biotech & Pharma Consortium",
+        "badge": "Pharma & CRO Jury",
+        "panel": "DHEA 2026 Panel",
+        "verified": true,
+        "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400",
+        "localImagePath": "/images/members/dr-rajeshwar-pillai.jpg",
+        "bio": "Global pharmaceutical research leader driving oncology clinical trials, biosimilars, and regulatory compliance standards.",
+        "category": "Pharma & Clinical Research",
+        "social": {
+          "linkedin": "https://linkedin.com"
+        }
+      },
+      {
+        "id": "dr-meenakshi-sundaram",
+        "name": "Dr. Meenakshi Sundaram",
+        "role": "Managing Director & Chief of Pathology",
+        "institution": "National Diagnostic Council of India",
+        "badge": "Diagnostics Jury",
+        "panel": "DHEA 2026 Panel",
+        "verified": true,
+        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=400",
+        "localImagePath": "/images/members/dr-meenakshi-sundaram.jpg",
+        "bio": "Pioneer in automated molecular diagnostics, quality assurance protocols, and nationwide laboratory accreditation systems.",
+        "category": "Diagnostics & Pathology",
+        "social": {
+          "linkedin": "https://linkedin.com"
+        }
+      },
+      {
+        "id": "vikramaditya-roy",
+        "name": "Vikramaditya Roy",
+        "role": "Partner & Healthcare Investment Lead",
+        "institution": "Asian HealthTech Ventures",
+        "badge": "HealthTech Jury",
+        "panel": "DHEA 2026 Panel",
+        "verified": true,
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+        "localImagePath": "/images/members/vikramaditya-roy.jpg",
+        "bio": "Leading healthcare investor and advisor backing AI-enabled diagnostics, surgical robotics, and telemedicine solutions across Asia.",
+        "category": "HealthTech & Startups",
+        "social": {
+          "linkedin": "https://linkedin.com"
+        }
+      },
+      {
+        "id": "dr-ananya-roychowdhury",
+        "name": "Dr. Ananya Roychowdhury",
+        "role": "Dean of Medical Sciences & Surgeon",
+        "institution": "Institute of Post-Graduate Medical Education & Research",
+        "badge": "Surgical Jury",
+        "panel": "DHEA 2026 Panel",
+        "verified": true,
+        "image": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=400",
+        "localImagePath": "/images/members/dr-ananya-roychowdhury.jpg",
+        "bio": "Master surgical educator and hospital administrator committed to advancing minimally invasive surgery protocols and patient safety.",
+        "category": "Surgical & Hospital Admin",
+        "social": {
+          "linkedin": "https://linkedin.com"
+        }
+      },
+      {
+        "id": "sanjay-singhal",
+        "name": "Sanjay Singhal",
+        "role": "Chief Strategy & Digital Health Advisor",
+        "institution": "National Healthcare Federation",
+        "badge": "Digital Health Jury",
+        "panel": "DHEA 2026 Panel",
+        "verified": true,
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
+        "localImagePath": "/images/members/sanjay-singhal.jpg",
+        "bio": "Strategist and digital transformation architect advising public and private hospital chains on electronic health records (EHR) and interoperability.",
+        "category": "Digital Health & Operations",
+        "social": {
+          "linkedin": "https://linkedin.com"
+        }
+      }
+    ],
+
+    "advisoryBoard": [
+      {
+        "id": "adv-1",
+        "name": "Dr. Debashis Guha",
+        "role": "Senior Advisor - Healthcare Policy & Accreditation",
+        "institution": "Eastern Healthcare Council",
+        "badge": "Advisory Board",
+        "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400",
+        "localImagePath": "/images/members/dr-debashis-guha.jpg"
+      },
+      {
+        "id": "adv-2",
+        "name": "Dr. Aparna Mukherjee",
+        "role": "Director of Clinical Quality & Patient Safety",
+        "institution": "Federation of Indian Hospitals",
+        "badge": "Quality Advisor",
+        "image": "https://images.unsplash.com/photo-1594824813569-b5f7e754ef80?auto=format&fit=crop&q=80&w=400",
+        "localImagePath": "/images/members/dr-aparna-mukherjee.jpg"
+      }
+    ],
+
+    "secretariat": [
+      {
+        "id": "sec-1",
+        "name": "Awards Secretariat Desk",
+        "role": "DHEA Program Director & Verification Secretariat",
+        "email": "awards@dosedaily.in",
+        "phone": "+91-XXXXXXXXXX",
+        "location": "Kolkata, West Bengal, India"
+      },
+      {
+        "id": "sec-2",
+        "name": "Brand Alliances & Sponsorship Desk",
+        "role": "Head of Corporate Partnerships & Exhibitions",
+        "email": "partnerships@dosedaily.in",
+        "phone": "+91-XXXXXXXXXX",
+        "location": "Kolkata, West Bengal, India"
+      }
+    ]
+  },
+
+  "socialLinks": {
+    "linkedin": "https://www.linkedin.com",
+    "twitter": "https://twitter.com",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "youtube": "https://youtube.com"
+  }
+}

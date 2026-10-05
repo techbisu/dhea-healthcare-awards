@@ -1,0 +1,124 @@
+---
+const partnerGroups = [
+  {
+    category: "Knowledge Partners",
+    desc: "Independent process evaluation & compliance audit",
+    partners: [
+      { name: "Global Health Policy Advisory", type: "Process Advisor" },
+      { name: "Clinical Audit & Assurance Council", type: "Audit Partner" },
+      { name: "National Healthcare Quality Forum", type: "Standards Partner" },
+    ]
+  },
+  {
+    category: "Association Partners",
+    desc: "Premier healthcare & pharmaceutical associations",
+    partners: [
+      { name: "Association of Healthcare Providers", type: "Apex Body" },
+      { name: "Federation of Indian Diagnostic Networks", type: "Diagnostics Body" },
+      { name: "Consortium of Clinical Research Centers", type: "Research Council" },
+      { name: "Indian Medical Innovation Alliance", type: "Innovation Body" },
+    ]
+  },
+  {
+    category: "Academic Partners",
+    desc: "Esteemed medical universities & research institutions",
+    partners: [
+      { name: "Institute of Medical & Health Sciences", type: "Academic Council" },
+      { name: "National Institute of Pharmaceutical Education", type: "Pharmacy Partner" },
+      { name: "Kolkata Centre for Advanced Clinical Research", type: "Host Institution" },
+    ]
+  },
+  {
+    category: "Industry Partners",
+    desc: "Leading healthcare infrastructure & technology leaders",
+    partners: [
+      { name: "HealthTech Innovations Consortium", type: "Tech Alliance" },
+      { name: "National MedTech Council of India", type: "MedTech Partner" },
+      { name: "BioPharma Manufacturers Guild", type: "Pharma Guild" },
+      { name: "Hospital Architecture & Facility Federation", type: "Infra Partner" },
+    ]
+  },
+  {
+    category: "Media Partners",
+    desc: "Pan-India print, digital, and broadcast healthcare coverage",
+    partners: [
+      { name: "Dose Daily Healthcare News", type: "Official Media" },
+      { name: "India Pharma & Biotech Express", type: "Pharma Press" },
+      { name: "The Healthcare Journal Review", type: "Print Partner" },
+      { name: "Digital Health Times India", type: "Digital Media" },
+    ]
+  }
+];
+---
+
+<section id="partners" class="relative py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="section-badge">Alliances & Ecosystem</div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+        Media & <span class="gold-text-gradient">Partners</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
+        Supported by India's foremost healthcare associations, academic colleges, clinical bodies, and media leaders.
+      </p>
+    </div>
+
+    <!-- Partner Logos Section -->
+    <div class="space-y-12">
+      {partnerGroups.map((grp) => (
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-[#d4a34b]/20 bg-[#140e08]/90">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#d4a34b]/20 gap-2">
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">
+                {grp.category}
+              </h3>
+              <p class="text-xs text-[#a8957f]">{grp.desc}</p>
+            </div>
+            <span class="text-xs text-[#f6dd9f] font-semibold">
+              Official Collaboration
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {grp.partners.map((partner) => (
+              <div class="p-5 rounded-xl bg-[#1d140a]/70 border border-[#2b1c0d] hover:border-[#d4a34b]/50 transition-all flex flex-col justify-between group">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-8 h-8 rounded-lg bg-[#2a1d0d] border border-[#d4a34b]/20 flex items-center justify-center text-xs font-bold text-[#f6dd9f]">
+                    ★
+                  </div>
+                  <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#27190c] text-[#d4a34b] border border-[#d4a34b]/20">
+                    {partner.type}
+                  </span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-sm sm:text-base font-bold text-white group-hover:text-[#f6dd9f] transition-colors mb-1">
+                    {partner.name}
+                  </h4>
+                  <span class="text-[11px] text-[#9a866f]">Partner Network 2026</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Become a Partner Callout -->
+    <div class="mt-12 text-center">
+      <p class="text-xs sm:text-sm text-[#c9b8a3] mb-4">
+        Interested in partnering with Dose Daily Healthcare Excellence Awards 2026?
+      </p>
+      <button 
+        type="button"
+        onclick="window.openModal('modal-partner')"
+        class="btn-outline-gold px-6 py-3 rounded-xl text-xs font-bold tracking-wider cursor-pointer"
+      >
+        Inquire for Partnership Alliance
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<div class="gold-divider my-10"></div>

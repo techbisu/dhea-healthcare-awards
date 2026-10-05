@@ -1,0 +1,116 @@
+---
+const faqs = [
+  {
+    question: "What is DHEA 2026?",
+    answer: "The Dose Daily Healthcare Excellence Awards (DHEA) is India's premier platform celebrating organizations and professionals transforming healthcare across hospitals, pharmaceuticals, clinical research, diagnostics, education, and digital innovation."
+  },
+  {
+    question: "Who can submit nominations for DHEA 2026?",
+    answer: "Nominations are open across 9 primary sectors: Hospitals & Healthcare Providers, Doctors & Healthcare Professionals, Diagnostic & IVF Centres, Pharmaceutical & Biotech Companies, CROs & SMOs, Medical & Pharmacy Colleges, HealthTech Startups, NGOs & Public Health Bodies, and C-Suite Healthcare Leaders."
+  },
+  {
+    question: "What are the important deadlines for DHEA 2026?",
+    answer: "Nominations officially open on 15 July 2026. The Early Bird deadline is 15 August 2026 (offering discounted entry fees). The standard nomination deadline is 15 September 2026, and the extended deadline closes on 30 September 2026. The Grand Awards Ceremony takes place in December 2026 in Kolkata, India."
+  },
+  {
+    question: "Can an institution submit nominations in multiple categories?",
+    answer: "Yes, an institution or individual may enter across multiple distinct categories. Each submission requires a unique online nomination form along with corresponding supporting evidence and audit materials."
+  },
+  {
+    question: "How does the DHEA jury evaluation process work?",
+    answer: "The evaluation follows a transparent, multi-tiered process: Stage 1 involves screening and verification by independent process advisors. Stage 2 consists of blind evaluation and scoring by a 50+ member jury panel across defined metrics (clinical quality, innovation, scalability, leadership). Finalists undergo presentation and site visits before the Grand Jury selects the winners."
+  },
+  {
+    question: "How is proprietary medical data and confidentiality maintained?",
+    answer: "All submitted data, clinical records, and financial formulations are protected under strict Non-Disclosure Agreements (NDAs). Submissions are accessed solely by assigned independent jurors and process auditors via a secured encrypted portal."
+  },
+  {
+    question: "Where and when will the Awards Ceremony take place?",
+    answer: "The DHEA 2026 Grand Awards Ceremony and Healthcare Leaders Conclave will be held in December 2026 in Kolkata, West Bengal, India. It will host over 1000+ industry leaders, healthcare dignitaries, hospital owners, and policymakers."
+  }
+];
+---
+
+<section id="faq" class="relative py-20 px-4 sm:px-6 lg:px-8 bg-[#100c08]/50">
+  <div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="section-badge">Common Inquiries</div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+        Frequently Asked <span class="gold-text-gradient">Questions</span>
+      </h2>
+      <p class="text-sm sm:text-base text-[#c9b8a3]">
+        Everything you need to know about the nomination, evaluation, and ceremony process.
+      </p>
+    </div>
+
+    <!-- Accordion Container -->
+    <div class="space-y-4">
+      {faqs.map((faq, idx) => (
+        <div class="glass-card rounded-2xl border border-[#d4a34b]/20 bg-[#161009]/85 overflow-hidden transition-all duration-200">
+          <button
+            type="button"
+            class="faq-btn w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#1e150b]/80 transition-colors"
+            data-index={idx}
+          >
+            <span class="font-serif text-base sm:text-lg font-bold text-white flex items-center gap-3">
+              <span class="text-xs font-mono font-bold text-[#d4a34b] px-2 py-0.5 rounded bg-[#2a1d0d] border border-[#d4a34b]/20">
+                0{idx + 1}
+              </span>
+              <span>{faq.question}</span>
+            </span>
+            <span class="faq-icon text-lg text-[#f6dd9f] transform transition-transform duration-300">
+              ▼
+            </span>
+          </button>
+          
+          <div class="faq-content hidden px-6 pb-6 pt-2 text-xs sm:text-sm text-[#c9b8a3] leading-relaxed border-t border-[#2a1d0d]">
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Still Have Questions CTA -->
+    <div class="mt-12 text-center p-6 rounded-2xl bg-[#181108]/90 border border-[#d4a34b]/20">
+      <h4 class="font-serif text-base font-bold text-white mb-1">
+        Have more questions about the nomination process?
+      </h4>
+      <p class="text-xs text-[#a99781] mb-4">
+        Contact our Awards Secretariat directly at awards@dosedaily.in
+      </p>
+      <a 
+        href="#contact" 
+        class="inline-block btn-outline-gold px-5 py-2.5 rounded-lg text-xs font-bold tracking-wider"
+      >
+        Contact Secretariat →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const faqButtons = document.querySelectorAll('.faq-btn');
+
+  faqButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const parent = btn.parentElement;
+      const content = parent?.querySelector('.faq-content');
+      const icon = btn.querySelector('.faq-icon');
+
+      const isHidden = content?.classList.contains('hidden');
+
+      // Close all others
+      document.querySelectorAll('.faq-content').forEach((c) => c.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach((i) => i.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        content?.classList.remove('hidden');
+        icon?.classList.add('rotate-180');
+      }
+    });
+  });
+</script>
+
+<div class="gold-divider my-10"></div>
