@@ -96,6 +96,24 @@
           }
         }
       }
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "provider": { "type": "string" },
+        "web3formsAccessKey": { "type": "string" },
+        "recipientEmails": {
+          "type": "object",
+          "properties": {
+            "contact": { "type": "string" },
+            "nomination": { "type": "string" },
+            "delegate": { "type": "string" },
+            "sponsorship": { "type": "string" },
+            "brochure": { "type": "string" }
+          }
+        },
+        "instructions": { "type": "string" }
+      }
     }
   },
   "definitions": {

@@ -1,6 +1,7 @@
 ---
 import config from '../data/config.json';
-const { downloads, contact, site } = config;
+const { downloads, contact, site, forms } = config;
+const web3formsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || forms?.web3formsAccessKey || '';
 const allDownloads = [
   downloads.awardsBrochure,
   downloads.sponsorshipBrochure,
@@ -34,6 +35,9 @@ const allDownloads = [
     </div>
 
     <form id="form-nominate" class="space-y-4">
+      <!-- Anti-spam Honeypot -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
+
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
@@ -41,6 +45,7 @@ const allDownloads = [
           </label>
           <input 
             type="text" 
+            name="applicant_name"
             required 
             placeholder="Dr. / Mr. / Ms. Name"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -52,6 +57,7 @@ const allDownloads = [
           </label>
           <input 
             type="text" 
+            name="designation"
             required 
             placeholder="Managing Director / Chief Medical Officer"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -66,6 +72,7 @@ const allDownloads = [
           </label>
           <input 
             type="text" 
+            name="organization"
             required 
             placeholder="Healthcare Institution Name"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -75,7 +82,7 @@ const allDownloads = [
           <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
             Sector Category *
           </label>
-          <select class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
+          <select name="category" class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
             <option>Hospitals & Healthcare Providers</option>
             <option>Doctors & Healthcare Professionals</option>
             <option>Diagnostic & IVF Centres</option>
@@ -96,6 +103,7 @@ const allDownloads = [
           </label>
           <input 
             type="email" 
+            name="email"
             required 
             placeholder="awards@institution.org"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -107,6 +115,7 @@ const allDownloads = [
           </label>
           <input 
             type="tel" 
+            name="phone"
             required 
             placeholder="+91 98300 XXXXX"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -120,6 +129,7 @@ const allDownloads = [
         </label>
         <textarea 
           rows="3" 
+          name="synopsis"
           required 
           placeholder="Summarize the initiative, innovation, patient outcomes, or organizational milestone..."
           class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b] resize-none"
@@ -127,18 +137,21 @@ const allDownloads = [
       </div>
 
       <div class="p-3 rounded-xl bg-[#1c1309] border border-[#d4a34b]/20 text-[11px] text-[#bdae9c]">
-        ℹ️ Early Bird Deadline: <strong>15 August 2026</strong>. Supporting audit files & presentation slides can also be mailed to <span class="text-[#f6dd9f]">awards@dosedaily.in</span>.
+        ℹ️ Early Bird Deadline: <strong>{config.dates.earlyBirdDeadline}</strong>. Supporting audit files & presentation slides can also be mailed to <span class="text-[#f6dd9f]">{contact.primaryEmail}</span>.
       </div>
 
       <button 
         type="submit" 
-        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow"
+        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow flex items-center justify-center transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Submit Official Nomination Entry
+        <span>Submit Official Nomination Entry</span>
       </button>
 
-      <div id="nominate-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center">
+      <div id="nominate-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center leading-relaxed">
         ✓ Nomination Submitted! The DHEA Secretariat will send you the verification dossier and reference ID.
+      </div>
+
+      <div id="nominate-error" class="hidden p-3 rounded-xl bg-red-950 border border-red-500 text-red-300 text-xs text-center leading-relaxed">
       </div>
     </form>
   </div>
@@ -166,12 +179,16 @@ const allDownloads = [
     </div>
 
     <form id="form-delegate" class="space-y-4">
+      <!-- Anti-spam Honeypot -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
+
       <div>
         <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
           Full Name *
         </label>
         <input 
           type="text" 
+          name="name"
           required 
           placeholder="Delegate Full Name"
           class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -185,6 +202,7 @@ const allDownloads = [
           </label>
           <input 
             type="email" 
+            name="email"
             required 
             placeholder="name@company.com"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -196,6 +214,7 @@ const allDownloads = [
           </label>
           <input 
             type="tel" 
+            name="phone"
             required 
             placeholder="+91 98765 43210"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -208,7 +227,7 @@ const allDownloads = [
           <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
             Pass Type *
           </label>
-          <select class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
+          <select name="pass_type" class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
             <option>Individual VIP Delegate Pass</option>
             <option>Corporate Table of 6</option>
             <option>Corporate Table of 10</option>
@@ -221,6 +240,7 @@ const allDownloads = [
           </label>
           <input 
             type="text" 
+            name="organization"
             required 
             placeholder="Institution Name"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -230,13 +250,16 @@ const allDownloads = [
 
       <button 
         type="submit" 
-        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow"
+        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow flex items-center justify-center transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Confirm Delegate Seat Reservation
+        <span>Confirm Delegate Seat Reservation</span>
       </button>
 
-      <div id="delegate-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center">
+      <div id="delegate-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center leading-relaxed">
         ✓ Delegate Request Received! The secretariat will issue your confirmation pass and event badge details.
+      </div>
+
+      <div id="delegate-error" class="hidden p-3 rounded-xl bg-red-950 border border-red-500 text-red-300 text-xs text-center leading-relaxed">
       </div>
     </form>
   </div>
@@ -264,17 +287,22 @@ const allDownloads = [
     </div>
 
     <form id="form-brochure" class="space-y-4">
+      <!-- Anti-spam Honeypot -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
+
       <div>
         <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
           Select Document to Download *
         </label>
         <select 
           id="brochure-select"
+          name="document"
           class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/40 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
         >
           {allDownloads.map((doc) => (
             <option 
-              value={doc.id}
+              value={doc.title}
+              data-id={doc.id}
               data-filepath={doc.filePath}
               data-filename={doc.fileName}
               data-filesize={doc.fileSize}
@@ -296,6 +324,7 @@ const allDownloads = [
         </label>
         <input 
           type="text" 
+          name="name"
           required 
           placeholder="Dr. / Mr. Name"
           class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -308,6 +337,7 @@ const allDownloads = [
         </label>
         <input 
           type="email" 
+          name="email"
           required 
           placeholder="name@hospital.com"
           class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -320,6 +350,7 @@ const allDownloads = [
         </label>
         <input 
           type="tel" 
+          name="phone"
           required 
           placeholder="+91 98XXXXXXXX"
           class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -329,7 +360,7 @@ const allDownloads = [
       <button 
         type="submit" 
         id="btn-brochure-submit"
-        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow flex items-center justify-center gap-2"
+        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
@@ -353,8 +384,11 @@ const allDownloads = [
         </a>
       </div>
 
-      <div id="brochure-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center">
+      <div id="brochure-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center leading-relaxed">
         ✓ PDF download started! A confirmation copy has also been sent to your email.
+      </div>
+
+      <div id="brochure-error" class="hidden p-3 rounded-xl bg-red-950 border border-red-500 text-red-300 text-xs text-center leading-relaxed">
       </div>
     </form>
   </div>
@@ -382,6 +416,9 @@ const allDownloads = [
     </div>
 
     <form id="form-partner" class="space-y-4">
+      <!-- Anti-spam Honeypot -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
+
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
@@ -389,6 +426,7 @@ const allDownloads = [
           </label>
           <input 
             type="text" 
+            name="name"
             required 
             placeholder="Your Name"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -400,6 +438,7 @@ const allDownloads = [
           </label>
           <input 
             type="text" 
+            name="organization"
             required 
             placeholder="Brand Name"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -414,6 +453,7 @@ const allDownloads = [
           </label>
           <input 
             type="email" 
+            name="email"
             required 
             placeholder="partnerships@company.com"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -425,6 +465,7 @@ const allDownloads = [
           </label>
           <input 
             type="tel" 
+            name="phone"
             required 
             placeholder="+91 98XXXXXXXX"
             class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
@@ -436,7 +477,7 @@ const allDownloads = [
         <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
           Desired Partnership Package *
         </label>
-        <select class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
+        <select name="package" class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
           <option>Title Sponsor</option>
           <option>Powered By Sponsor</option>
           <option>Associate Sponsor</option>
@@ -451,6 +492,7 @@ const allDownloads = [
           Specific Branding or Exhibition Objectives
         </label>
         <textarea 
+          name="objectives"
           rows="3" 
           placeholder="Tell us about your brand's healthcare objectives, key target markets, or questions..."
           class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b] resize-none"
@@ -459,19 +501,22 @@ const allDownloads = [
 
       <button 
         type="submit" 
-        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow"
+        class="btn-gold w-full py-3.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow flex items-center justify-center transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Submit Partnership Expression of Interest
+        <span>Submit Partnership Expression of Interest</span>
       </button>
 
-      <div id="partner-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center">
+      <div id="partner-success" class="hidden p-3 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs text-center leading-relaxed">
         ✓ Thank you! Our brand alliance director will contact you directly with customized sponsorship inventory.
+      </div>
+
+      <div id="partner-error" class="hidden p-3 rounded-xl bg-red-950 border border-red-500 text-red-300 text-xs text-center leading-relaxed">
       </div>
     </form>
   </div>
 </div>
 
-<script is:inline>
+<script define:vars={{ web3formsKey: web3formsAccessKey, siteName: site.name, primaryEmail: contact.primaryEmail, sponsorshipEmail: contact.sponsorshipEmail }}>
   window.openModal = function(id) {
     const el = document.getElementById(id);
     if (el) {
@@ -494,7 +539,7 @@ const allDownloads = [
     const select = document.getElementById('brochure-select');
     if (select && docId) {
       for (let i = 0; i < select.options.length; i++) {
-        if (select.options[i].value === docId) {
+        if (select.options[i].dataset.id === docId || select.options[i].value === docId) {
           select.selectedIndex = i;
           select.dispatchEvent(new Event('change'));
           break;
@@ -536,40 +581,156 @@ const allDownloads = [
     });
   }
 
-  // Handle submissions with actual PDF trigger for brochure
-  ['form-nominate', 'form-delegate', 'form-brochure', 'form-partner'].forEach((formId) => {
-    const form = document.getElementById(formId);
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // If downloading brochure, trigger physical file download
-        if (formId === 'form-brochure') {
-          const select = document.getElementById('brochure-select');
-          const opt = select ? select.options[select.selectedIndex] : null;
-          const filePath = opt ? opt.dataset.filepath : '/downloads/DHEA-2026-Awards-Brochure.pdf';
-          const fileName = opt ? opt.dataset.filename : 'DHEA-2026-Awards-Brochure.pdf';
-
-          const triggerLink = document.createElement('a');
-          triggerLink.href = filePath;
-          triggerLink.download = fileName;
-          triggerLink.style.display = 'none';
-          document.body.appendChild(triggerLink);
-          triggerLink.click();
-          setTimeout(() => {
-            document.body.removeChild(triggerLink);
-          }, 150);
-        }
-
-        const successId = formId.replace('form-', '') + '-success';
-        const successBox = document.getElementById(successId);
-        if (successBox) successBox.classList.remove('hidden');
-        setTimeout(() => {
-          window.closeModal(formId.replace('form-', 'modal-'));
-          form.reset();
-          if (successBox) successBox.classList.add('hidden');
-        }, 2200);
-      });
+  // Handle submissions for all modal forms
+  const formConfigs = {
+    'form-nominate': {
+      subject: (data) => `[${siteName}] New Award Nomination: ${data.applicant_name || 'Applicant'} (${data.organization || ''})`,
+      fromName: `${siteName} Awards Nomination Desk`,
+      loadingText: 'Submitting Nomination Entry...',
+      targetEmail: primaryEmail,
+      successMsg: (data) => `✓ Nomination Submitted! The DHEA Secretariat will review your dossier and send reference details to ${data.email || 'your email'}.`
+    },
+    'form-delegate': {
+      subject: (data) => `[${siteName}] Delegate Seat Reservation: ${data.name || 'Delegate'} (${data.organization || ''})`,
+      fromName: `${siteName} Delegate Desk`,
+      loadingText: 'Reserving Delegate Seat...',
+      targetEmail: primaryEmail,
+      successMsg: () => `✓ Delegate Request Received! The secretariat will issue your confirmation pass and event badge details.`
+    },
+    'form-brochure': {
+      subject: (data) => `[${siteName}] Brochure Download Lead: ${data.name || 'Visitor'} - ${data.document || 'Brochure'}`,
+      fromName: `${siteName} Downloads Desk`,
+      loadingText: 'Initiating PDF Download...',
+      targetEmail: primaryEmail,
+      successMsg: () => `✓ PDF download started! A confirmation copy has been recorded for the secretariat.`
+    },
+    'form-partner': {
+      subject: (data) => `[${siteName}] Sponsorship Expression of Interest: ${data.name || 'Partner'} (${data.organization || ''})`,
+      fromName: `${siteName} Brand Alliances`,
+      loadingText: 'Submitting Partnership Request...',
+      targetEmail: sponsorshipEmail,
+      successMsg: () => `✓ Thank you! Our brand alliance director will contact you directly with customized sponsorship inventory.`
     }
+  };
+
+  Object.keys(formConfigs).forEach((formId) => {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const configItem = formConfigs[formId];
+      const prefix = formId.replace('form-', '');
+      const successBox = document.getElementById(`${prefix}-success`);
+      const errorBox = document.getElementById(`${prefix}-error`);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnHTML = submitBtn ? submitBtn.innerHTML : 'Submit';
+
+      if (successBox) successBox.classList.add('hidden');
+      if (errorBox) errorBox.classList.add('hidden');
+
+      const formData = new FormData(form);
+
+      // Bot honeypot check
+      if (formData.get('botcheck')) {
+        return;
+      }
+
+      // If downloading brochure, trigger physical file download
+      if (formId === 'form-brochure') {
+        const select = document.getElementById('brochure-select');
+        const opt = select ? select.options[select.selectedIndex] : null;
+        const filePath = opt ? opt.dataset.filepath : '/downloads/DHEA-2026-Awards-Brochure.pdf';
+        const fileName = opt ? opt.dataset.filename : 'DHEA-2026-Awards-Brochure.pdf';
+
+        const triggerLink = document.createElement('a');
+        triggerLink.href = filePath;
+        triggerLink.download = fileName;
+        triggerLink.style.display = 'none';
+        document.body.appendChild(triggerLink);
+        triggerLink.click();
+        setTimeout(() => {
+          document.body.removeChild(triggerLink);
+        }, 200);
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <span class="inline-flex items-center gap-2">
+            <svg class="animate-spin h-4 w-4 text-black" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            ${configItem.loadingText}
+          </span>
+        `;
+      }
+
+      const formValues = Object.fromEntries(formData.entries());
+
+      try {
+        const payload = {
+          subject: configItem.subject(formValues),
+          from_name: configItem.fromName,
+          ...formValues
+        };
+
+        if (!web3formsKey) {
+          // Simulation mode when no key configured yet
+          console.warn(`[Web3Forms] No access key configured for ${formId}. Form submission simulated. Configure forms.web3formsAccessKey in config.json or PUBLIC_WEB3FORMS_KEY in .env to deliver real emails to ${configItem.targetEmail}`);
+          await new Promise((r) => setTimeout(r, 650));
+
+          if (successBox) {
+            successBox.innerHTML = `${configItem.successMsg(formValues)}<br><span class="opacity-80 text-[10px] mt-1 block">(Demo mode: Set your Web3Forms Access Key in config.json or .env to receive actual emails)</span>`;
+            successBox.classList.remove('hidden');
+          }
+
+          setTimeout(() => {
+            window.closeModal(formId.replace('form-', 'modal-'));
+            form.reset();
+            if (successBox) successBox.classList.add('hidden');
+          }, 2400);
+        } else {
+          payload.access_key = web3formsKey;
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          const data = await response.json();
+
+          if (response.ok && data.success) {
+            if (successBox) {
+              successBox.innerHTML = configItem.successMsg(formValues);
+              successBox.classList.remove('hidden');
+            }
+
+            setTimeout(() => {
+              window.closeModal(formId.replace('form-', 'modal-'));
+              form.reset();
+              if (successBox) successBox.classList.add('hidden');
+            }, 2400);
+          } else {
+            throw new Error(data.message || 'Failed to submit form. Please check your details.');
+          }
+        }
+      } catch (err) {
+        if (errorBox) {
+          errorBox.textContent = err.message || `Unable to submit right now. Please email us directly at ${configItem.targetEmail}.`;
+          errorBox.classList.remove('hidden');
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHTML;
+        }
+      }
+    });
   });
 </script>

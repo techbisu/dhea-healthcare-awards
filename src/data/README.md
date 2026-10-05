@@ -117,9 +117,33 @@ Inside `config.json`, locate the `"downloads"` object:
 "contact": {
   "secretariatName": "DHEA Awards Secretariat",
   "organization": "Dose Daily Healthcare Excellence Awards",
-  "primaryEmail": "awards@dosedaily.in",
+  "primaryEmail": "awards@dosedailynews.com",
   "helpline": "+91 98300 XXXXX",
-  "website": "https://www.dosedaily.in",
+  "website": "https://www.dosedailynews.com",
   "operatingHours": "Monday to Saturday, 10:00 AM – 6:30 PM IST"
 }
 ```
+
+---
+
+## 5. Forms & Email Submission Setup (Web3Forms)
+
+All forms across the site (Contact Us, Award Nomination, Delegate Booking, Brochure Download, and Sponsorship Inquiry) support direct email submission via **Web3Forms**.
+
+### How to activate live email delivery:
+1. Visit **[https://web3forms.com](https://web3forms.com)** and enter your recipient email (e.g. `awards@dosedailynews.com`) to generate a free Access Key.
+2. Configure your Access Key either:
+   - In `src/data/config.json`:
+     ```json
+     "forms": {
+       "provider": "web3forms",
+       "web3formsAccessKey": "YOUR-ACCESS-KEY-HERE",
+       ...
+     }
+     ```
+   - OR create a `.env` file in the project root:
+     ```env
+     PUBLIC_WEB3FORMS_KEY=your-access-key-here
+     ```
+3. When no key is set (or during local development), the website automatically operates in **simulation mode** so testers can test all workflows and downloads without failing or requiring credentials!
+

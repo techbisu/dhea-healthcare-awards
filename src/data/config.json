@@ -17,21 +17,19 @@
     "portalStatus": "Nominations Open",
     "nominateUrl": "/#nominate"
   },
-
   "contact": {
     "secretariatName": "DHEA Awards Secretariat",
     "organization": "Dose Daily Healthcare Excellence Awards",
-    "primaryEmail": "awards@dosedaily.in",
-    "supportEmail": "support@dosedaily.in",
-    "sponsorshipEmail": "partnerships@dosedaily.in",
+    "primaryEmail": "awards@dosedailynews.com",
+    "supportEmail": "support@dosedailynews.com",
+    "sponsorshipEmail": "partnerships@dosedailynews.com",
     "helpline": "+91 98300 XXXXX",
     "phone": "+91-XXXXXXXXXX",
-    "website": "https://www.dosedaily.in",
-    "websiteDisplay": "www.dosedaily.in",
+    "website": "https://www.dosedailynews.com",
+    "websiteDisplay": "www.dosedailynews.com",
     "address": "Kolkata, West Bengal, India",
     "operatingHours": "Monday to Saturday, 10:00 AM – 6:30 PM IST"
   },
-
   "dates": {
     "nominationsOpen": "15 July 2026",
     "earlyBirdDeadline": "15 August 2026",
@@ -45,7 +43,6 @@
     "finalistsAnnouncement": "November 2026",
     "awardsCeremony": "December 2026"
   },
-
   "stats": [
     {
       "value": "100+",
@@ -73,7 +70,6 @@
       "subtext": "C-suite executives & medical visionaries"
     }
   ],
-
   "downloads": {
     "awardsBrochure": {
       "id": "awards-brochure",
@@ -159,7 +155,6 @@
       }
     ]
   },
-
   "members": {
     "juryMembers": [
       {
@@ -292,7 +287,6 @@
         }
       }
     ],
-
     "advisoryBoard": [
       {
         "id": "adv-1",
@@ -313,13 +307,12 @@
         "localImagePath": "/images/members/dr-aparna-mukherjee.jpg"
       }
     ],
-
     "secretariat": [
       {
         "id": "sec-1",
         "name": "Awards Secretariat Desk",
         "role": "DHEA Program Director & Verification Secretariat",
-        "email": "awards@dosedaily.in",
+        "email": "awards@dosedailynews.com",
         "phone": "+91-XXXXXXXXXX",
         "location": "Kolkata, West Bengal, India"
       },
@@ -327,18 +320,29 @@
         "id": "sec-2",
         "name": "Brand Alliances & Sponsorship Desk",
         "role": "Head of Corporate Partnerships & Exhibitions",
-        "email": "partnerships@dosedaily.in",
+        "email": "partnerships@dosedailynews.com",
         "phone": "+91-XXXXXXXXXX",
         "location": "Kolkata, West Bengal, India"
       }
     ]
   },
-
   "socialLinks": {
     "linkedin": "https://www.linkedin.com",
     "twitter": "https://twitter.com",
     "facebook": "https://facebook.com",
     "instagram": "https://instagram.com",
     "youtube": "https://youtube.com"
+  },
+  "forms": {
+    "provider": "web3forms",
+    "web3formsAccessKey": "",
+    "recipientEmails": {
+      "contact": "awards@dosedailynews.com",
+      "nomination": "awards@dosedailynews.com",
+      "delegate": "awards@dosedailynews.com",
+      "sponsorship": "partnerships@dosedailynews.com",
+      "brochure": "awards@dosedailynews.com"
+    },
+    "instructions": "Get your free Access Key at https://web3forms.com (no account needed). Paste the key into web3formsAccessKey or into .env as PUBLIC_WEB3FORMS_KEY."
   }
 }

@@ -1,6 +1,7 @@
 ---
 import config from '../data/config.json';
-const { site, contact } = config;
+const { site, contact, forms } = config;
+const web3formsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || forms?.web3formsAccessKey || '';
 ---
 
 <section id="contact" class="relative py-20 px-4 sm:px-6 lg:px-8">
@@ -114,6 +115,9 @@ const { site, contact } = config;
           </p>
 
           <form id="contact-form" class="space-y-4">
+            <!-- Anti-spam Honeypot -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-xs font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1.5">
@@ -121,6 +125,7 @@ const { site, contact } = config;
                 </label>
                 <input 
                   type="text" 
+                  name="name"
                   required
                   placeholder="Dr. / Mr. / Ms. Full Name"
                   class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white placeholder-[#786754] text-xs focus:outline-none focus:border-[#d4a34b] transition-colors"
@@ -133,6 +138,7 @@ const { site, contact } = config;
                 </label>
                 <input 
                   type="email" 
+                  name="email"
                   required
                   placeholder="name@organization.com"
                   class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white placeholder-[#786754] text-xs focus:outline-none focus:border-[#d4a34b] transition-colors"
@@ -147,6 +153,7 @@ const { site, contact } = config;
                 </label>
                 <input 
                   type="tel" 
+                  name="phone"
                   required
                   placeholder="+91 98765 43210"
                   class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white placeholder-[#786754] text-xs focus:outline-none focus:border-[#d4a34b] transition-colors"
@@ -159,6 +166,7 @@ const { site, contact } = config;
                 </label>
                 <input 
                   type="text" 
+                  name="organization"
                   required
                   placeholder="Hospital, Pharma or Company Name"
                   class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white placeholder-[#786754] text-xs focus:outline-none focus:border-[#d4a34b] transition-colors"
@@ -171,14 +179,15 @@ const { site, contact } = config;
                 Inquiry Type *
               </label>
               <select 
+                name="inquiry_type"
                 class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white text-xs focus:outline-none focus:border-[#d4a34b] transition-colors"
               >
-                <option value="nomination">Award Nomination Assistance</option>
-                <option value="delegate">Delegate Registration & Table Booking</option>
-                <option value="sponsorship">Sponsorship & Partnership Package</option>
-                <option value="jury">Jury or Academic Collaboration</option>
-                <option value="media">Media & Press Accreditation</option>
-                <option value="other">General Secretariat Query</option>
+                <option value="Award Nomination Assistance">Award Nomination Assistance</option>
+                <option value="Delegate Registration & Table Booking">Delegate Registration & Table Booking</option>
+                <option value="Sponsorship & Partnership Package">Sponsorship & Partnership Package</option>
+                <option value="Jury or Academic Collaboration">Jury or Academic Collaboration</option>
+                <option value="Media & Press Accreditation">Media & Press Accreditation</option>
+                <option value="General Secretariat Query">General Secretariat Query</option>
               </select>
             </div>
 
@@ -188,6 +197,7 @@ const { site, contact } = config;
               </label>
               <textarea 
                 rows="4"
+                name="message"
                 required
                 placeholder="Please outline your queries regarding nominations, delegate passes, or sponsorship..."
                 class="w-full px-4 py-3 rounded-xl bg-[#20150b] border border-[#d4a34b]/25 text-white placeholder-[#786754] text-xs focus:outline-none focus:border-[#d4a34b] transition-colors resize-none"
@@ -195,14 +205,18 @@ const { site, contact } = config;
             </div>
 
             <button 
+              id="contact-submit-btn"
               type="submit"
-              class="btn-gold w-full py-4 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow"
+              class="btn-gold w-full py-4 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow flex items-center justify-center transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Submit Message to Secretariat
+              <span id="contact-submit-text">Submit Message to Secretariat</span>
             </button>
 
-            <div id="contact-success" class="hidden p-3 rounded-xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-300 text-xs text-center">
-              ✓ Thank you! Your message has been routed to DHEA Secretariat (awards@dosedaily.in). We will get back to you shortly.
+            <div id="contact-success" class="hidden p-4 rounded-xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-300 text-xs text-center leading-relaxed">
+              ✓ Thank you! Your message has been routed to DHEA Secretariat ({contact.primaryEmail}). We will get back to you shortly.
+            </div>
+
+            <div id="contact-error" class="hidden p-4 rounded-xl bg-red-950/80 border border-red-500/50 text-red-300 text-xs text-center leading-relaxed">
             </div>
           </form>
         </div>
@@ -213,13 +227,87 @@ const { site, contact } = config;
   </div>
 </section>
 
-<script>
+<script define:vars={{ web3formsKey: web3formsAccessKey, primaryEmail: contact.primaryEmail, siteName: site.name }}>
   const contactForm = document.getElementById('contact-form');
   const successBox = document.getElementById('contact-success');
+  const errorBox = document.getElementById('contact-error');
+  const submitBtn = document.getElementById('contact-submit-btn');
+  const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Message to Secretariat';
 
-  contactForm?.addEventListener('submit', (e) => {
+  contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    successBox?.classList.remove('hidden');
-    contactForm.reset();
+    if (successBox) successBox.classList.add('hidden');
+    if (errorBox) errorBox.classList.add('hidden');
+
+    const formData = new FormData(contactForm);
+
+    // Bot honeypot check
+    if (formData.get('botcheck')) {
+      return;
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <span class="inline-flex items-center gap-2">
+          <svg class="animate-spin h-4 w-4 text-black" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          Sending Message to Secretariat...
+        </span>
+      `;
+    }
+
+    try {
+      const payload = {
+        subject: `[${siteName}] Secretariat Inquiry from ${formData.get('name') || 'Website Visitor'}`,
+        from_name: `${siteName} Awards Secretariat`,
+        ...Object.fromEntries(formData.entries())
+      };
+
+      if (!web3formsKey) {
+        // Simulation mode when no key is set yet
+        console.warn(`[Web3Forms] No access key configured. Form submission simulated. Configure forms.web3formsAccessKey in config.json or PUBLIC_WEB3FORMS_KEY in .env to receive real emails at ${primaryEmail}`);
+        await new Promise((r) => setTimeout(r, 650));
+        if (successBox) {
+          successBox.innerHTML = `✓ Thank you! Your message has been received.<br><span class="text-[11px] text-[#f6dd9f] mt-1 block">Recipient: ${primaryEmail}</span><span class="opacity-80 text-[10px] mt-0.5 block">(Demo mode: Set your Web3Forms Access Key in config.json or .env to receive actual emails)</span>`;
+          successBox.classList.remove('hidden');
+        }
+        contactForm.reset();
+      } else {
+        payload.access_key = web3formsKey;
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          if (successBox) {
+            successBox.innerHTML = `✓ Thank you! Your message has been routed to DHEA Secretariat (${primaryEmail}). We will get back to you shortly.`;
+            successBox.classList.remove('hidden');
+          }
+          contactForm.reset();
+        } else {
+          throw new Error(data.message || 'Failed to submit form. Please verify your details.');
+        }
+      }
+    } catch (err) {
+      if (errorBox) {
+        errorBox.textContent = err.message || `Unable to send message right now. Please email us directly at ${primaryEmail}.`;
+        errorBox.classList.remove('hidden');
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+    }
   });
 </script>
