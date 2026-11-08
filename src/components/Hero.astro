@@ -26,18 +26,21 @@ const { site, dates } = config;
       <span class="text-lg">✨</span>
     </div>
 
-    <!-- Trophy / Crest Visual Motif -->
+    <!-- Official Crest Visual Motif -->
     <div class="relative mb-6">
-      <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-2xl bg-gradient-to-br from-[#f6dd9f] via-[#d4a34b] to-[#784d12] p-[2px] shadow-[0_0_35px_rgba(212,163,75,0.45)]">
-        <div class="w-full h-full bg-[#140e08] rounded-[14px] flex items-center justify-center relative overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#d4a34b]/20 to-transparent"></div>
-          <svg class="w-12 h-12 text-[#f6dd9f] drop-shadow-[0_2px_10px_rgba(212,163,75,0.6)]" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.34-4.8-2.52-4.8 2.52.92-5.34-3.88-3.78 5.36-.78L12 2z"/>
-          </svg>
-        </div>
+      <div class="relative mx-auto flex items-center justify-center">
+        <div class="absolute inset-0 bg-[#d4a34b]/25 rounded-full blur-2xl scale-110 pointer-events-none"></div>
+        <img
+          src="/dhealogo.webp"
+          alt={`${site.fullName} Official Seal`}
+          class="relative h-24 sm:h-28 md:h-32 w-auto object-contain drop-shadow-[0_10px_30px_rgba(212,163,75,0.5)] transition-transform duration-300 hover:scale-105"
+          width="130"
+          height="158"
+          loading="eager"
+        />
       </div>
       <!-- Floating edition pill -->
-      <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-0.5 rounded-full bg-[#3d270c] border border-[#d4a34b] text-[11px] font-bold text-[#fff2cc] tracking-widest uppercase shadow">
+      <div class="mt-3 inline-block whitespace-nowrap px-3.5 py-0.5 rounded-full bg-[#2a1b0c] border border-[#d4a34b] text-[11px] font-bold text-[#fff2cc] tracking-widest uppercase shadow-gold-glow">
         {site.name}
       </div>
     </div>

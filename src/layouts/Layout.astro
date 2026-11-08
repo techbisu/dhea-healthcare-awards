@@ -8,12 +8,85 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  keywords?: string;
 }
 
 const { 
-  title = `${config.site.name} | ${config.site.fullName} | Healthcare Awards India`,
-  description = `${config.site.fullName} (${config.site.name}) - ${config.site.tagline}. ${config.site.locationDisplay}.`
+  title = `${config.site.name} | ${config.site.fullName} | Premier Healthcare Awards India`,
+  description = `${config.site.fullName} (${config.site.name}) - ${config.site.tagline}. Nominations open for Hospitals, Doctors, Pharma, Diagnostics & Startups in ${config.site.locationDisplay}.`,
+  image = `${config.contact.website}/dhealogo.webp`,
+  keywords = "Healthcare Awards India, Hospital of the Year India, DHEA, Dose Daily Healthcare Excellence Awards, Medical Specialties Awards, Pharma Excellence Awards, Diagnostics Awards India, HealthTech Startup Awards, Healthcare Leadership Awards, Clinical Research Awards, Hospital Infrastructure, IVF Centre of the Year, Nursing Excellence India, Healthcare Awards Kolkata 2026 2027"
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, config.contact.website).href;
+const logoURL = `${config.contact.website}/dhealogo.webp`;
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || config.site?.googleAnalyticsId || '';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": `${config.site.fullName} (${config.site.name})`,
+    "alternateName": "DHEA Healthcare Awards",
+    "description": config.site.tagline,
+    "startDate": "2026-12-15T18:00:00+05:30",
+    "endDate": "2026-12-15T23:00:00+05:30",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": config.site.venue,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": config.site.city,
+        "addressRegion": config.site.state,
+        "addressCountry": "IN"
+      }
+    },
+    "image": [logoURL],
+    "organizer": {
+      "@type": "Organization",
+      "name": config.site.fullName,
+      "url": config.contact.website,
+      "logo": logoURL
+    },
+    "offers": {
+      "@type": "Offer",
+      "name": "DHEA Official Award Nomination Entry",
+      "url": `${config.contact.website}/nominate/`,
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2026-07-15"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": config.site.fullName,
+    "alternateName": "DHEA Awards Secretariat",
+    "url": config.contact.website,
+    "logo": logoURL,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": config.contact.helpline,
+      "contactType": "customer service",
+      "email": config.contact.primaryEmail,
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi", "Bengali"]
+    },
+    "sameAs": [
+      config.socialLinks.linkedin,
+      config.socialLinks.twitter,
+      config.socialLinks.facebook
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "DHEA Healthcare Excellence Awards",
+    "url": config.contact.website
+  }
+];
 ---
 
 <!doctype html>
@@ -21,25 +94,66 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4a34b'><path d='M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.34-4.8-2.52-4.8 2.52.92-5.34-3.88-3.78 5.36-.78L12 2z'/></svg>" />
+    
+    <!-- Primary Favicon & App Icons -->
+    <link rel="icon" type="image/webp" href="/dhealogo.webp" />
+    <link rel="apple-touch-icon" href="/dhealogo.webp" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
     
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="DHEA Awards Secretariat • Dose Daily" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#160f08" />
+
+    <!-- Geographic & Regional SEO -->
+    <meta name="geo.region" content="IN-WB" />
+    <meta name="geo.placename" content="Kolkata" />
     
-    <!-- Open Graph / Social Media -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="Dose Daily Healthcare Excellence Awards" />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content="Dose Daily Healthcare Excellence Awards Logo" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="488" />
+    <meta property="og:site_name" content="Dose Daily Healthcare Excellence Awards (DHEA)" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content="DHEA Crest Logo" />
+
+    <!-- Structured Data (JSON-LD) for Google Rich Snippets & AI Overviews (AEO) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics (GA4) -->
+    {gaId && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </>
+    )}
   </head>
   <body class="bg-[#0c0906] text-[#f3ede2] antialiased selection:bg-[#d4a34b] selection:text-black">
     <div class="relative min-h-screen flex flex-col justify-between">

@@ -1,210 +1,499 @@
 ---
-const categoryGroups = [
-  {
-    id: "hospitals",
-    name: "Hospitals & Providers",
-    icon: "🏥",
-    awards: [
-      { name: "Hospital of the Year (National)", level: "National", code: "HOS-01" },
-      { name: "Best Multi-Specialty Hospital (Regional: East, West, North, South)", level: "Regional", code: "HOS-02" },
-      { name: "Best Single-Specialty Hospital (Cardiology / Oncology / Ortho / Neuro)", level: "National", code: "HOS-03" },
-      { name: "Excellence in Patient Safety & Clinical Outcomes", level: "National", code: "HOS-04" },
-      { name: "Best Green & Sustainable Hospital Campus", level: "National", code: "HOS-05" },
-      { name: "Excellence in Critical & Emergency Care Infrastructure", level: "State / Regional", code: "HOS-06" },
-      { name: "Best Daycare Surgical & Ambulatory Centre", level: "Regional", code: "HOS-07" },
-      { name: "Most Trusted Community Hospital", level: "State", code: "HOS-08" },
-    ]
-  },
-  {
-    id: "doctors",
-    name: "Doctors & Clinicians",
-    icon: "🩺",
-    awards: [
-      { name: "Clinician of the Year", level: "National", code: "DOC-01" },
-      { name: "Surgeon of the Year (Surgical Innovation)", level: "National", code: "DOC-02" },
-      { name: "Lifetime Achievement Award in Healthcare", level: "National", code: "DOC-03" },
-      { name: "Young Medical Researcher of the Year (Under 40)", level: "National", code: "DOC-04" },
-      { name: "Excellence in Rural & Community Medical Service", level: "State / Regional", code: "DOC-05" },
-      { name: "Outstanding Medical Educator of the Year", level: "National", code: "DOC-06" },
-      { name: "Pioneering Work in Minimally Invasive Surgery", level: "National", code: "DOC-07" },
-    ]
-  },
-  {
-    id: "pharma",
-    name: "Pharma & Biotech",
-    icon: "💊",
-    awards: [
-      { name: "Pharmaceutical Company of the Year", level: "National", code: "PHA-01" },
-      { name: "Excellence in Novel Drug Delivery & Formulation", level: "National", code: "PHA-02" },
-      { name: "Biotech Innovator of the Year", level: "National", code: "PHA-03" },
-      { name: "Excellence in Vaccine Development & Supply Chain", level: "National", code: "PHA-04" },
-      { name: "Outstanding Active Pharmaceutical Ingredient (API) Manufacturer", level: "National", code: "PHA-05" },
-      { name: "Best Regulatory Compliance & Quality Assurance", level: "National", code: "PHA-06" },
-      { name: "Affordable Healthcare & Essential Medicine Initiative", level: "National", code: "PHA-07" },
-    ]
-  },
-  {
-    id: "diagnostics",
-    name: "Diagnostic & IVF",
-    icon: "🔬",
-    awards: [
-      { name: "Diagnostic Laboratory Chain of the Year", level: "National", code: "DIA-01" },
-      { name: "Best Pathology Laboratory (Regional & State)", level: "Regional", code: "DIA-02" },
-      { name: "Excellence in Molecular Diagnostics & Genomics", level: "National", code: "DIA-03" },
-      { name: "Advanced Radiology & Imaging Centre of the Year", level: "National", code: "DIA-04" },
-      { name: "IVF & Fertility Chain of the Year", level: "National", code: "DIA-05" },
-      { name: "Excellence in Embryology & Reproductive Genetics", level: "National", code: "DIA-06" },
-    ]
-  },
-  {
-    id: "healthtech",
-    name: "HealthTech & Startups",
-    icon: "🚀",
-    awards: [
-      { name: "HealthTech Startup of the Year", level: "National", code: "TECH-01" },
-      { name: "Breakthrough AI Application in Clinical Healthcare", level: "National", code: "TECH-02" },
-      { name: "Best Telemedicine & Remote Patient Monitoring Platform", level: "National", code: "TECH-03" },
-      { name: "Excellence in Indigenous Medical Device Manufacturing", level: "National", code: "TECH-04" },
-      { name: "Most Innovative Digital Health Ecosystem", level: "National", code: "TECH-05" },
-      { name: "Cybersecurity & Data Privacy Excellence in Healthcare", level: "National", code: "TECH-06" },
-    ]
-  },
-  {
-    id: "leadership",
-    name: "Leadership & C-Suite",
-    icon: "👔",
-    awards: [
-      { name: "Healthcare CEO of the Year", level: "National", code: "LDR-01" },
-      { name: "Medical Director of the Year", level: "National", code: "LDR-02" },
-      { name: "Healthcare CFO of the Year (Financial Sustainability)", level: "National", code: "LDR-03" },
-      { name: "Healthcare CIO / CTO of the Year (Digital Transformation)", level: "National", code: "LDR-04" },
-      { name: "Woman Healthcare Leader of the Year", level: "National", code: "LDR-05" },
-      { name: "Excellence in Nursing Leadership & Administration", level: "National", code: "LDR-06" },
-    ]
-  }
-];
+import awardData from '../data/awardCategories.json';
+
+const { tracks, totalAwards, totalTracks, edition } = awardData;
 ---
 
 <section id="categories" class="relative py-20 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
     <!-- Header -->
-    <div class="text-center mb-14">
-      <div class="section-badge">100+ Categories</div>
+    <div class="text-center mb-10">
+      <div class="section-badge inline-flex items-center gap-1.5">
+        <span>🏆</span>
+        <span>{edition} Award Hierarchy • {totalAwards}+ Subcategories</span>
+      </div>
       <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-        Award <span class="gold-text-gradient">Categories</span>
+        Award <span class="gold-text-gradient">Categories & Subcategories</span>
       </h2>
       <p class="max-w-3xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
-        DHEA 2026 features National, Regional & State Awards spanning 100+ categories to celebrate the full spectrum of healthcare impact.
+        DHEA {edition} features an exhaustive national hierarchy across {totalTracks} distinct healthcare tracks, recognizing clinical mastery, operational excellence, digital transformation, and lifetime institutional impact.
       </p>
     </div>
 
-    <!-- Category Tabs Navigation -->
-    <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10">
-      {categoryGroups.map((group, index) => (
+    <!-- Search & Filter Controls -->
+    <div class="glass-card rounded-2xl p-5 sm:p-6 mb-8 border border-[#d4a34b]/30 bg-[#160f08]/95 shadow-2xl">
+      <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+        <!-- Search Input -->
+        <div class="relative flex-1">
+          <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#d4a34b]">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </span>
+          <input
+            type="text"
+            id="cat-search-input"
+            placeholder="Search 200+ awards by keyword, specialty, or code (e.g. 'Robotic', 'Oncology', 'HOS-16')..."
+            class="w-full pl-10 pr-10 py-3 rounded-xl bg-[#1e1309] border border-[#d4a34b]/40 text-white placeholder-[#8f7e6a] text-xs sm:text-sm focus:outline-none focus:border-[#d4a34b] focus:ring-1 focus:ring-[#d4a34b] transition-all"
+          />
+          <button
+            type="button"
+            id="cat-search-clear"
+            class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#8f7e6a] hover:text-[#f6dd9f] hidden cursor-pointer"
+            title="Clear search"
+          >
+            ✕
+          </button>
+        </div>
+
+        <!-- Level Quick Filter -->
+        <div class="flex items-center gap-1.5 shrink-0 overflow-x-auto pb-1 md:pb-0">
+          <span class="text-[11px] font-semibold text-[#a8957e] uppercase tracking-wider mr-1 hidden sm:inline">Level:</span>
+          <button
+            type="button"
+            data-level-filter="all"
+            class="level-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide border border-[#d4a34b] bg-[#301f0e] text-[#f6dd9f] transition-all cursor-pointer"
+          >
+            All
+          </button>
+          <button
+            type="button"
+            data-level-filter="National"
+            class="level-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide border border-[#342414] bg-[#1a1108] text-[#c5b59f] hover:border-[#d4a34b]/40 transition-all cursor-pointer"
+          >
+            National
+          </button>
+          <button
+            type="button"
+            data-level-filter="Regional"
+            class="level-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide border border-[#342414] bg-[#1a1108] text-[#c5b59f] hover:border-[#d4a34b]/40 transition-all cursor-pointer"
+          >
+            Regional
+          </button>
+          <button
+            type="button"
+            data-level-filter="Apex"
+            class="level-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide border border-[#342414] bg-[#1a1108] text-[#c5b59f] hover:border-[#d4a34b]/40 transition-all cursor-pointer"
+          >
+            👑 Apex
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Track Selector (Visible on mobile/tablet) -->
+      <div class="mt-4 block lg:hidden">
+        <label for="cat-mobile-track-select" class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+          Jump to Award Track:
+        </label>
+        <select
+          id="cat-mobile-track-select"
+          class="w-full px-3.5 py-2.5 rounded-xl bg-[#1e1309] border border-[#d4a34b]/40 text-white text-xs focus:outline-none focus:border-[#d4a34b]"
+        >
+          <option value="all">🌟 All Categories ({totalAwards} Awards)</option>
+          {tracks.map((track) => (
+            <option value={track.id}>
+              {track.icon} {track.name} ({track.awards.length})
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <!-- Desktop Track Chips (Scrollable horizontal rail) -->
+      <div class="mt-4 hidden lg:flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-[#d4a34b]/20">
         <button
           type="button"
-          data-tab-target={`cat-tab-${group.id}`}
-          class={`cat-tab-btn px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer flex items-center gap-2 border ${
-            index === 0
-              ? 'bg-[#2f1f0f] text-[#f6dd9f] border-[#d4a34b] shadow-gold-glow'
-              : 'bg-[#181108]/80 text-[#c5b59f] border-[#30210f] hover:border-[#d4a34b]/40 hover:text-white'
-          }`}
+          data-track-filter="all"
+          class="cat-track-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold border border-[#d4a34b] bg-[#301f0e] text-[#f6dd9f] shadow-gold-glow flex items-center gap-1.5 cursor-pointer transition-all"
         >
-          <span>{group.icon}</span>
-          <span>{group.name}</span>
+          <span>🌟</span>
+          <span>All Tracks</span>
+          <span class="px-1.5 py-0.2 rounded-full bg-[#1b1208] text-[10px] text-[#e0b764]">{totalAwards}</span>
         </button>
-      ))}
+
+        {tracks.map((track) => (
+          <button
+            type="button"
+            data-track-filter={track.id}
+            class="cat-track-btn shrink-0 px-3 py-2 rounded-xl text-xs font-semibold border border-[#2e1e0f] bg-[#170f08]/90 text-[#c5b59f] hover:border-[#d4a34b]/50 hover:text-white flex items-center gap-1.5 cursor-pointer transition-all"
+          >
+            <span>{track.icon}</span>
+            <span class="truncate max-w-[150px]">{track.shortName}</span>
+            <span class="px-1.5 py-0.2 rounded-full bg-[#1b1208] text-[10px] text-[#e0b764]">{track.awards.length}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Live Results Counter & Reset Action -->
+      <div class="mt-4 pt-3 border-t border-[#2e1f0e] flex items-center justify-between text-xs text-[#a8957e]">
+        <div id="cat-results-counter">
+          Showing <span id="cat-visible-count" class="font-bold text-[#f6dd9f]">{totalAwards}</span> of <span class="font-bold text-white">{totalAwards}</span> awards
+        </div>
+        <button
+          type="button"
+          id="cat-reset-filters"
+          class="text-[#d4a34b] hover:text-white underline text-xs cursor-pointer hidden"
+        >
+          Reset All Filters
+        </button>
+      </div>
     </div>
 
-    <!-- Category Tab Panels -->
-    <div class="space-y-6">
-      {categoryGroups.map((group, index) => (
-        <div 
-          id={`cat-tab-${group.id}`} 
-          class={`cat-tab-panel ${index === 0 ? 'block' : 'hidden'}`}
-        >
-          <div class="glass-card rounded-2xl p-6 sm:p-8 border border-[#d4a34b]/25 bg-[#140e08]/90">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#d4a34b]/20 gap-3">
-              <div class="flex items-center gap-3">
-                <span class="text-2xl">{group.icon}</span>
-                <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">
-                  {group.name} Awards
-                </h3>
-              </div>
-              <span class="text-xs text-[#d4a34b] font-medium tracking-wide">
-                Showing {group.awards.length} featured categories
-              </span>
-            </div>
+    <!-- Empty State (When search has 0 matches) -->
+    <div id="cat-empty-state" class="hidden text-center py-16 px-4 glass-card rounded-2xl border border-[#d4a34b]/20 bg-[#160f08]/90 my-8">
+      <div class="text-4xl mb-3">🔍</div>
+      <h3 class="font-serif text-xl font-bold text-white mb-2">No Matching Award Categories Found</h3>
+      <p class="text-xs sm:text-sm text-[#bcaaa0] max-w-md mx-auto mb-6">
+        We couldn't find any category matching your search terms. Try searching by medical discipline, hospital function, or award code (e.g. "Cardiology", "Robotic", "HOS-01").
+      </p>
+      <button
+        type="button"
+        onclick="window.resetAwardCategoryFilters()"
+        class="btn-gold px-6 py-2.5 rounded-xl text-xs font-bold tracking-wider cursor-pointer"
+      >
+        Clear Search & Show All Awards
+      </button>
+    </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {group.awards.map((award) => (
-                <div class="p-4 rounded-xl bg-[#1d140a]/80 border border-[#2d1e0f] hover:border-[#d4a34b]/50 transition-all flex items-center justify-between gap-3 group">
-                  <div class="flex items-center gap-3">
-                    <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#2e1f0e] text-[#f6dd9f] border border-[#d4a34b]/20 shrink-0">
-                      {award.code}
+    <!-- Category Tracks Container -->
+    <div id="cat-tracks-container" class="space-y-10">
+      {tracks.map((track) => (
+        <div
+          id={`track-section-${track.id}`}
+          data-track-id={track.id}
+          class={`track-section ${track.isApex ? 'track-apex' : ''}`}
+        >
+          <!-- Track Header -->
+          <div class={`glass-card rounded-2xl p-5 sm:p-6 mb-4 border transition-all ${
+            track.isApex
+              ? 'border-[#d4a34b] bg-gradient-to-r from-[#2c1d09] via-[#1a1208] to-[#2c1d09] shadow-[0_0_35px_rgba(212,163,75,0.25)]'
+              : 'border-[#d4a34b]/20 bg-[#140e08]/90'
+          }`}>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div class="flex items-start sm:items-center gap-3.5">
+                <span class="text-3xl p-2.5 rounded-xl bg-[#22160b] border border-[#d4a34b]/30 shrink-0">
+                  {track.icon}
+                </span>
+                <div>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-[#2a1b0c] text-[#f6dd9f] border border-[#d4a34b]/30">
+                      Track {track.number}
                     </span>
-                    <div>
-                      <h4 class="text-xs sm:text-sm font-semibold text-[#f3ede2] group-hover:text-[#f6dd9f] transition-colors">
-                        {award.name}
-                      </h4>
-                      <span class="text-[11px] text-[#b5a38c]">{award.level} Recognition</span>
-                    </div>
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#1e1308] text-[#d4a34b] border border-[#d4a34b]/20">
+                      {track.badge}
+                    </span>
+                    {track.isApex && (
+                      <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-500 to-yellow-300 text-black">
+                        APEX TIER
+                      </span>
+                    )}
                   </div>
-                  <button 
+                  <h3 class="font-serif text-lg sm:text-2xl font-bold text-white mt-1">
+                    {track.name}
+                  </h3>
+                  <p class="text-xs sm:text-sm text-[#c0af9a] mt-1 max-w-4xl">
+                    {track.description}
+                  </p>
+                </div>
+              </div>
+              <div class="shrink-0 flex items-center gap-2 self-end sm:self-center">
+                <span class="text-xs text-[#d4a34b] font-medium hidden md:inline">
+                  {track.awards.length} Subcategories
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Awards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+            {track.awards.map((award) => (
+              <div
+                class={`award-card group p-4 rounded-xl transition-all duration-200 border flex flex-col justify-between gap-3 ${
+                  track.isApex
+                    ? 'bg-gradient-to-br from-[#24170a] to-[#160f07] border-[#d4a34b]/50 hover:border-[#d4a34b] shadow-[0_0_20px_rgba(212,163,75,0.15)]'
+                    : 'bg-[#181008]/85 border-[#281b0e] hover:border-[#d4a34b]/40 hover:bg-[#1f150b]'
+                }`}
+                data-award-code={award.code}
+                data-award-name={award.name.toLowerCase()}
+                data-award-level={award.level}
+                data-award-track={track.id}
+              >
+                <!-- Card Top: Code & Level -->
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#2b1c0d] text-[#f6dd9f] border border-[#d4a34b]/25 shrink-0 group-hover:border-[#d4a34b]/60 transition-colors">
+                    {award.code}
+                  </span>
+                  <span class={`text-[10px] font-semibold px-2 py-0.5 rounded-full shrink-0 ${
+                    award.level.includes('Apex')
+                      ? 'bg-amber-400/20 text-amber-300 border border-amber-400/30'
+                      : award.level.includes('Regional')
+                      ? 'bg-sky-950/70 text-sky-300 border border-sky-600/30'
+                      : 'bg-[#26190c] text-[#c9b7a1] border border-[#3e2714]'
+                  }`}>
+                    {award.level}
+                  </span>
+                </div>
+
+                <!-- Card Middle: Award Name -->
+                <div>
+                  <h4 class="text-xs sm:text-sm font-semibold text-[#f5eedf] group-hover:text-[#f8e3b4] transition-colors leading-snug">
+                    {award.name}
+                  </h4>
+                  <div class="text-[11px] text-[#9c8973] mt-1 flex items-center gap-1.5">
+                    <span>{track.shortName}</span>
+                    {award.note && (
+                      <>
+                        <span>•</span>
+                        <span class="text-[#d4a34b]">{award.note}</span>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                <!-- Card Bottom: Action -->
+                <div class="pt-2 border-t border-[#26190d] flex items-center justify-between gap-2 mt-auto">
+                  <span class="text-[10px] text-[#8e7c67]">DHEA {edition}</span>
+                  <button
                     type="button"
-                    onclick="window.openModal('modal-nominate')"
-                    class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-[#2c1d0e] text-[#f6dd9f] hover:bg-[#d4a34b] hover:text-black transition-colors shrink-0 cursor-pointer"
+                    onclick={`window.openNominateForAward('${track.id}', '${award.code}', '${award.name.replace(/'/g, "\\'")}')`}
+                    class={`text-[11px] font-bold px-3 py-1.5 rounded-lg transition-all cursor-pointer flex items-center gap-1 shrink-0 ${
+                      track.isApex
+                        ? 'btn-gold shadow-gold-glow'
+                        : 'bg-[#2b1c0d] text-[#f6dd9f] border border-[#d4a34b]/30 hover:bg-[#d4a34b] hover:text-black hover:border-[#d4a34b]'
+                    }`}
                   >
-                    Nominate →
+                    <span>Nominate</span>
+                    <span>→</span>
                   </button>
                 </div>
-              ))}
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-[#2a1d0d] flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span class="text-xs text-[#bdae9c]">Looking for full criteria or custom regional categories?</span>
-              <button 
-                type="button"
-                onclick="window.openModal('modal-brochure')"
-                class="btn-outline-gold px-5 py-2.5 rounded-lg text-xs font-bold tracking-wider cursor-pointer"
-              >
-                Download Full Category Matrix (PDF)
-              </button>
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       ))}
     </div>
 
+    <!-- Bottom Matrix & Assistance Banner -->
+    <div class="mt-14 glass-card rounded-2xl p-6 sm:p-8 border border-[#d4a34b]/30 bg-gradient-to-r from-[#1b1208] via-[#24170b] to-[#1b1208] flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="max-w-2xl">
+        <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+          Need Guidance Selecting Your Categories?
+        </h3>
+        <p class="text-xs sm:text-sm text-[#c5b59f]">
+          Organizations and medical faculties may submit entries across multiple tracks. Download the exhaustive 2027 Category Dossier or speak directly with the Awards Secretariat for custom regional submissions.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">
+        <button
+          type="button"
+          onclick="window.openModal('modal-brochure')"
+          class="btn-gold w-full sm:w-auto px-5 py-3 rounded-xl text-xs font-bold tracking-wider cursor-pointer shadow-gold-glow text-center"
+        >
+          Download 2027 Directory (PDF)
+        </button>
+        <button
+          type="button"
+          onclick="window.openModal('modal-contact')"
+          class="btn-outline-gold w-full sm:w-auto px-5 py-3 rounded-xl text-xs font-bold tracking-wider cursor-pointer text-center"
+        >
+          Contact Secretariat
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
-  const tabBtns = document.querySelectorAll('.cat-tab-btn');
-  const tabPanels = document.querySelectorAll('.cat-tab-panel');
+  // Client-Side Real-Time Filter & Search Engine
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('cat-search-input') as HTMLInputElement | null;
+    const searchClear = document.getElementById('cat-search-clear');
+    const mobileSelect = document.getElementById('cat-mobile-track-select') as HTMLSelectElement | null;
+    const trackBtns = document.querySelectorAll('.cat-track-btn');
+    const levelBtns = document.querySelectorAll('.level-filter-btn');
+    const resetBtn = document.getElementById('cat-reset-filters');
+    const visibleCountEl = document.getElementById('cat-visible-count');
+    const emptyState = document.getElementById('cat-empty-state');
+    const trackSections = document.querySelectorAll('.track-section');
+    const awardCards = document.querySelectorAll('.award-card');
 
-  tabBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-tab-target');
-      
-      tabBtns.forEach((b) => {
-        b.classList.remove('bg-[#2f1f0f]', 'text-[#f6dd9f]', 'border-[#d4a34b]', 'shadow-gold-glow');
-        b.classList.add('bg-[#181108]/80', 'text-[#c5b59f]', 'border-[#30210f]');
-      });
+    let currentTrack = 'all';
+    let currentLevel = 'all';
+    let currentQuery = '';
 
-      btn.classList.add('bg-[#2f1f0f]', 'text-[#f6dd9f]', 'border-[#d4a34b]', 'shadow-gold-glow');
-      btn.classList.remove('bg-[#181108]/80', 'text-[#c5b59f]', 'border-[#30210f]');
+    function applyFilters() {
+      let visibleCount = 0;
+      const query = currentQuery.toLowerCase().trim();
 
-      tabPanels.forEach((panel) => {
-        if (panel.id === targetId) {
-          panel.classList.remove('hidden');
-          panel.classList.add('block');
+      // Show/hide clear button
+      if (searchClear) {
+        if (query.length > 0) {
+          searchClear.classList.remove('hidden');
         } else {
-          panel.classList.add('hidden');
-          panel.classList.remove('block');
+          searchClear.classList.add('hidden');
+        }
+      }
+
+      // Show/hide reset button
+      if (resetBtn) {
+        if (query.length > 0 || currentTrack !== 'all' || currentLevel !== 'all') {
+          resetBtn.classList.remove('hidden');
+        } else {
+          resetBtn.classList.add('hidden');
+        }
+      }
+
+      trackSections.forEach((section) => {
+        const secTrackId = section.getAttribute('data-track-id');
+        const cardsInSection = section.querySelectorAll('.award-card');
+        let visibleInTrack = 0;
+
+        // Check if track matches track filter
+        const trackMatches = currentTrack === 'all' || currentTrack === secTrackId;
+
+        if (!trackMatches) {
+          (section as HTMLElement).style.display = 'none';
+          return;
+        }
+
+        cardsInSection.forEach((card) => {
+          const awardName = card.getAttribute('data-award-name') || '';
+          const awardCode = (card.getAttribute('data-award-code') || '').toLowerCase();
+          const awardLevel = card.getAttribute('data-award-level') || '';
+
+          // Level matching
+          let levelMatches = true;
+          if (currentLevel === 'National') {
+            levelMatches = awardLevel.includes('National');
+          } else if (currentLevel === 'Regional') {
+            levelMatches = awardLevel.includes('Regional') || awardLevel.includes('State');
+          } else if (currentLevel === 'Apex') {
+            levelMatches = awardLevel.includes('Apex');
+          }
+
+          // Query matching
+          let queryMatches = true;
+          if (query.length > 0) {
+            queryMatches = awardName.includes(query) || awardCode.includes(query);
+          }
+
+          if (levelMatches && queryMatches) {
+            (card as HTMLElement).style.display = 'flex';
+            visibleInTrack++;
+            visibleCount++;
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+
+        // If track has at least one visible award, display the section; else hide it
+        if (visibleInTrack > 0) {
+          (section as HTMLElement).style.display = 'block';
+        } else {
+          (section as HTMLElement).style.display = 'none';
         }
       });
+
+      if (visibleCountEl) {
+        visibleCountEl.textContent = String(visibleCount);
+      }
+
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+    }
+
+    // Search input listener with debouncing
+    let debounceTimer: ReturnType<typeof setTimeout>;
+    searchInput?.addEventListener('input', (e) => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        currentQuery = (e.target as HTMLInputElement).value;
+        applyFilters();
+      }, 100);
     });
+
+    searchClear?.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        currentQuery = '';
+        applyFilters();
+        searchInput.focus();
+      }
+    });
+
+    // Mobile select listener
+    mobileSelect?.addEventListener('change', (e) => {
+      currentTrack = (e.target as HTMLSelectElement).value;
+      syncTrackButtonUI(currentTrack);
+      applyFilters();
+    });
+
+    // Track button pills
+    trackBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const selectedTrack = btn.getAttribute('data-track-filter') || 'all';
+        currentTrack = selectedTrack;
+        if (mobileSelect) {
+          mobileSelect.value = selectedTrack;
+        }
+        syncTrackButtonUI(selectedTrack);
+        applyFilters();
+      });
+    });
+
+    function syncTrackButtonUI(selectedTrack: string) {
+      trackBtns.forEach((b) => {
+        const trackId = b.getAttribute('data-track-filter');
+        if (trackId === selectedTrack) {
+          b.classList.add('border-[#d4a34b]', 'bg-[#301f0e]', 'text-[#f6dd9f]', 'shadow-gold-glow');
+          b.classList.remove('border-[#2e1e0f]', 'bg-[#170f08]/90', 'text-[#c5b59f]');
+        } else {
+          b.classList.remove('border-[#d4a34b]', 'bg-[#301f0e]', 'text-[#f6dd9f]', 'shadow-gold-glow');
+          b.classList.add('border-[#2e1e0f]', 'bg-[#170f08]/90', 'text-[#c5b59f]');
+        }
+      });
+    }
+
+    // Level buttons
+    levelBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        currentLevel = btn.getAttribute('data-level-filter') || 'all';
+        levelBtns.forEach((b) => {
+          b.classList.remove('border-[#d4a34b]', 'bg-[#301f0e]', 'text-[#f6dd9f]');
+          b.classList.add('border-[#342414]', 'bg-[#1a1108]', 'text-[#c5b59f]');
+        });
+        btn.classList.add('border-[#d4a34b]', 'bg-[#301f0e]', 'text-[#f6dd9f]');
+        btn.classList.remove('border-[#342414]', 'bg-[#1a1108]', 'text-[#c5b59f]');
+        applyFilters();
+      });
+    });
+
+    // Reset filters
+    function resetAllFilters() {
+      currentTrack = 'all';
+      currentLevel = 'all';
+      currentQuery = '';
+      if (searchInput) searchInput.value = '';
+      if (mobileSelect) mobileSelect.value = 'all';
+      syncTrackButtonUI('all');
+      levelBtns.forEach((b, index) => {
+        if (index === 0) {
+          b.classList.add('border-[#d4a34b]', 'bg-[#301f0e]', 'text-[#f6dd9f]');
+          b.classList.remove('border-[#342414]', 'bg-[#1a1108]', 'text-[#c5b59f]');
+        } else {
+          b.classList.remove('border-[#d4a34b]', 'bg-[#301f0e]', 'text-[#f6dd9f]');
+          b.classList.add('border-[#342414]', 'bg-[#1a1108]', 'text-[#c5b59f]');
+        }
+      });
+      applyFilters();
+    }
+
+    resetBtn?.addEventListener('click', resetAllFilters);
+    (window as any).resetAwardCategoryFilters = resetAllFilters;
   });
 </script>
 

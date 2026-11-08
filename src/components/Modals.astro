@@ -1,6 +1,8 @@
 ---
 import config from '../data/config.json';
+import awardData from '../data/awardCategories.json';
 const { downloads, contact, site, forms } = config;
+const { tracks, edition: awardEdition } = awardData;
 const web3formsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || forms?.web3formsAccessKey || '';
 const allDownloads = [
   downloads.awardsBrochure,
@@ -25,10 +27,10 @@ const allDownloads = [
     </button>
 
     <div class="flex items-center gap-3 mb-4">
-      <span class="text-2xl">🏆</span>
+      <img src="/dhealogo.webp" alt="DHEA Logo" class="w-9 h-11 object-contain shrink-0 drop-shadow-[0_0_8px_rgba(212,163,75,0.4)]" width="36" height="44" />
       <div>
         <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">
-          Apply for DHEA 2026 Awards
+          Apply for DHEA Awards
         </h3>
         <p class="text-xs text-[#d4a34b]">Dose Daily Healthcare Excellence Awards • December 2026, Kolkata</p>
       </div>
@@ -80,20 +82,30 @@ const allDownloads = [
         </div>
         <div>
           <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
-            Sector Category *
+            Award Sector Track *
           </label>
-          <select name="category" class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
-            <option>Hospitals & Healthcare Providers</option>
-            <option>Doctors & Healthcare Professionals</option>
-            <option>Diagnostic & IVF Centres</option>
-            <option>Pharmaceutical & Biotech Companies</option>
-            <option>CROs & SMOs</option>
-            <option>Medical, Pharmacy & Nursing Colleges</option>
-            <option>Healthcare Startups & HealthTech Companies</option>
-            <option>NGOs & Public Health Organizations</option>
-            <option>CEOs, CFOs, CIOs/CTOs & Healthcare Leaders</option>
+          <select id="nominate-track-select" name="sector_track" class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
+            <option value="all">🌟 All Tracks (200+ Awards)</option>
+            {tracks.map((t) => (
+              <option value={t.id}>{t.icon} {t.name} ({t.awards.length})</option>
+            ))}
           </select>
         </div>
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-semibold text-[#f6dd9f] uppercase tracking-wider mb-1">
+          Specific Award Subcategory *
+        </label>
+        <select id="nominate-award-select" name="category" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#20150b] border border-[#d4a34b]/30 text-white text-xs focus:outline-none focus:border-[#d4a34b]">
+          <option value="">-- Choose Specific Category --</option>
+          {tracks.flatMap((t) => t.awards.map((a) => (
+            <option value={`[${a.code}] ${a.name}`} data-track={t.id}>
+              [{a.code}] {a.name} ({a.level})
+            </option>
+          )))}
+        </select>
+      </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -547,6 +559,56 @@ const allDownloads = [
       }
     }
   };
+
+  // Open nomination modal with preselected track and award
+  window.openNominateForAward = function(trackId, awardCode, awardName) {
+    window.openModal('modal-nominate');
+    const trackSelect = document.getElementById('nominate-track-select');
+    const awardSelect = document.getElementById('nominate-award-select');
+    if (trackSelect && awardSelect) {
+      if (trackId) {
+        trackSelect.value = trackId;
+        filterNominateAwards(trackId);
+      }
+      if (awardCode) {
+        setTimeout(() => {
+          for (let i = 0; i < awardSelect.options.length; i++) {
+            const optVal = awardSelect.options[i].value;
+            if (optVal.includes(`[${awardCode}]`) || optVal.includes(awardCode)) {
+              awardSelect.selectedIndex = i;
+              break;
+            }
+          }
+        }, 30);
+      }
+    }
+  };
+
+  function filterNominateAwards(selectedTrackId) {
+    const awardSelect = document.getElementById('nominate-award-select');
+    if (!awardSelect) return;
+    const options = awardSelect.querySelectorAll('option');
+    options.forEach((opt) => {
+      if (!opt.value) return;
+      const optTrack = opt.getAttribute('data-track');
+      if (selectedTrackId === 'all' || !selectedTrackId || optTrack === selectedTrackId) {
+        opt.style.display = '';
+      } else {
+        opt.style.display = 'none';
+      }
+    });
+    const currentOpt = awardSelect.options[awardSelect.selectedIndex];
+    if (currentOpt && currentOpt.style.display === 'none') {
+      awardSelect.selectedIndex = 0;
+    }
+  }
+
+  const nominateTrackSelect = document.getElementById('nominate-track-select');
+  if (nominateTrackSelect) {
+    nominateTrackSelect.addEventListener('change', (e) => {
+      filterNominateAwards(e.target.value);
+    });
+  }
 
   // Close when clicking outside content
   document.querySelectorAll('.modal-backdrop').forEach((backdrop) => {

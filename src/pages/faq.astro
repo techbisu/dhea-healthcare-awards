@@ -2,9 +2,69 @@
 import Layout from '../layouts/Layout.astro';
 import FAQ from '../components/FAQ.astro';
 import Contact from '../components/Contact.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is DHEA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Dose Daily Healthcare Excellence Awards (DHEA) is India's premier platform celebrating organizations and professionals transforming healthcare across hospitals, pharmaceuticals, clinical research, diagnostics, education, and digital innovation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who can submit nominations for DHEA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nominations are open across 15 primary sectors: Hospitals & Healthcare Providers, Medical Specialties, Healthcare Leadership & Management, Health Insurance, Women in Healthcare, Research & Innovation (CRO/SMO), Public Health, Diagnostics & Imaging, IVF & Fertility, Healthcare Education, Pharmaceuticals, Healthcare Startups, Pharmacy Retail, Cosmetics/Cosmeceuticals, and Hall of Fame."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the important deadlines for DHEA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nominations officially open on 15 July 2026. The Early Bird deadline is 15 August 2026. The standard nomination deadline is 15 September 2026, and the extended deadline closes on 30 September 2026. The Grand Awards Ceremony takes place in December 2026 in Kolkata, India."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can an institution submit nominations in multiple categories?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, an institution or individual may enter across multiple distinct categories. Each submission requires a dedicated online nomination form along with corresponding supporting evidence and audit materials."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the DHEA jury evaluation process work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The evaluation follows a transparent, multi-tiered process: Stage 1 involves screening and verification by independent process advisors. Stage 2 consists of blind evaluation and scoring by an eminent jury panel across defined metrics (clinical quality, innovation, scalability, leadership). Finalists undergo presentation and site visits before the Grand Jury selects the winners."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where and when will the Awards Ceremony take place?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The DHEA Grand Awards Ceremony and Healthcare Leaders Conclave will be held in Kolkata, West Bengal, India at the Biswa Bangla Convention Centre, hosting over 1000+ healthcare leaders, hospital owners, and policymakers."
+      }
+    }
+  ]
+};
 ---
 
-<Layout title="Frequently Asked Questions | DHEA 2026 | Help Desk">
+<Layout 
+  title="Frequently Asked Questions (FAQ) | DHEA Healthcare Awards India"
+  description="Common questions about nomination eligibility, award categories, evaluation criteria, deadlines, and gala night for the Dose Daily Healthcare Excellence Awards."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <div class="py-12 bg-gradient-to-b from-[#181109] to-[#0c0906] border-b border-[#d4a34b]/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="section-badge">Help Desk & Info</div>

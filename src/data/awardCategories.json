@@ -1,0 +1,1234 @@
+{
+  "edition": "2027",
+  "title": "Dose Daily Healthcare Excellence Awards 2027",
+  "totalAwards": 211,
+  "totalTracks": 15,
+  "tracks": [
+    {
+      "id": "hospitals",
+      "number": 1,
+      "name": "Hospital Awards",
+      "shortName": "Hospitals",
+      "icon": "🏥",
+      "badge": "66 Categories",
+      "description": "Recognizing clinical outcomes, patient safety, cutting-edge surgical infrastructure, and institutional healthcare excellence across India.",
+      "awards": [
+        {
+          "code": "HOS-01",
+          "name": "Hospital of the Year – India",
+          "level": "National"
+        },
+        {
+          "code": "HOS-02",
+          "name": "Hospital of the Year – Regional",
+          "level": "Regional"
+        },
+        {
+          "code": "HOS-03",
+          "name": "Best Multispeciality Hospital – India",
+          "level": "National"
+        },
+        {
+          "code": "HOS-04",
+          "name": "Best Multispeciality Hospital – Regional",
+          "level": "Regional"
+        },
+        {
+          "code": "HOS-05",
+          "name": "Best Specialty Hospital of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-06",
+          "name": "Hospital Chain of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-07",
+          "name": "Emerging Hospital of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-08",
+          "name": "Best Single-Specialty Hospital",
+          "level": "National"
+        },
+        {
+          "code": "HOS-09",
+          "name": "Best Teaching Hospital of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-10",
+          "name": "Best Medical College Hospital of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-11",
+          "name": "Excellence in Affordable Healthcare Delivery",
+          "level": "National"
+        },
+        {
+          "code": "HOS-12",
+          "name": "Best Public Healthcare Hospital",
+          "level": "National / State"
+        },
+        {
+          "code": "HOS-13",
+          "name": "Best Private Healthcare Hospital",
+          "level": "National"
+        },
+        {
+          "code": "HOS-14",
+          "name": "Best Corporate Hospital of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-15",
+          "name": "Best Standalone Hospital of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-16",
+          "name": "Excellence in Cardiac Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-17",
+          "name": "Excellence in Cancer Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-18",
+          "name": "Excellence in Emergency & Trauma Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-19",
+          "name": "Excellence in Critical Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-20",
+          "name": "Excellence in Neonatal Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-21",
+          "name": "Excellence in Maternal & Child Healthcare",
+          "level": "National"
+        },
+        {
+          "code": "HOS-22",
+          "name": "Excellence in Neurological Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-23",
+          "name": "Excellence in Kidney Care & Nephrology",
+          "level": "National"
+        },
+        {
+          "code": "HOS-24",
+          "name": "Excellence in Gastroenterology & Hepatology",
+          "level": "National"
+        },
+        {
+          "code": "HOS-25",
+          "name": "Excellence in Orthopaedic Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-26",
+          "name": "Excellence in Joint Replacement Surgery",
+          "level": "National"
+        },
+        {
+          "code": "HOS-27",
+          "name": "Excellence in Neurosurgery",
+          "level": "National"
+        },
+        {
+          "code": "HOS-28",
+          "name": "Excellence in Organ Transplantation",
+          "level": "National"
+        },
+        {
+          "code": "HOS-29",
+          "name": "Excellence in Pulmonary & Respiratory Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-30",
+          "name": "Excellence in Urology",
+          "level": "National"
+        },
+        {
+          "code": "HOS-31",
+          "name": "Excellence in Ophthalmology & Eye Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-32",
+          "name": "Excellence in Obstetrics & Gynaecology",
+          "level": "National"
+        },
+        {
+          "code": "HOS-33",
+          "name": "Excellence in Paediatric Healthcare",
+          "level": "National"
+        },
+        {
+          "code": "HOS-34",
+          "name": "Excellence in General Medicine",
+          "level": "National"
+        },
+        {
+          "code": "HOS-35",
+          "name": "Excellence in General & Minimally Invasive Surgery",
+          "level": "National"
+        },
+        {
+          "code": "HOS-36",
+          "name": "Excellence in Vascular Surgery",
+          "level": "National"
+        },
+        {
+          "code": "HOS-37",
+          "name": "Excellence in Daycare & Short-Stay Surgery",
+          "level": "National"
+        },
+        {
+          "code": "HOS-38",
+          "name": "Excellence in Infectious Disease Management",
+          "level": "National"
+        },
+        {
+          "code": "HOS-39",
+          "name": "Excellence in Stroke Management",
+          "level": "National"
+        },
+        {
+          "code": "HOS-40",
+          "name": "Excellence in Diabetes & Endocrine Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-41",
+          "name": "Excellence in Pain Management & Palliative Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-42",
+          "name": "Excellence in Rehabilitation & Physical Medicine",
+          "level": "National"
+        },
+        {
+          "code": "HOS-43",
+          "name": "Excellence in Geriatric Healthcare",
+          "level": "National"
+        },
+        {
+          "code": "HOS-44",
+          "name": "Excellence in Dermatology & Skin Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-45",
+          "name": "Excellence in Fertility & Reproductive Healthcare",
+          "level": "National"
+        },
+        {
+          "code": "HOS-46",
+          "name": "Green Hospital of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-47",
+          "name": "Excellence in Sustainable Healthcare",
+          "level": "National"
+        },
+        {
+          "code": "HOS-48",
+          "name": "Healthcare CSR Initiative of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-49",
+          "name": "Excellence in Rural Healthcare Delivery",
+          "level": "National / Regional"
+        },
+        {
+          "code": "HOS-50",
+          "name": "AI-Enabled Hospital of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-51",
+          "name": "Excellence in Digital Hospital Transformation",
+          "level": "National"
+        },
+        {
+          "code": "HOS-52",
+          "name": "Excellence in Electronic Medical Records (EMR/EHR)",
+          "level": "National"
+        },
+        {
+          "code": "HOS-53",
+          "name": "Excellence in Telemedicine & Virtual Healthcare",
+          "level": "National"
+        },
+        {
+          "code": "HOS-54",
+          "name": "Excellence in Smart ICU Technology",
+          "level": "National"
+        },
+        {
+          "code": "HOS-55",
+          "name": "Excellence in Robotic Surgery",
+          "level": "National"
+        },
+        {
+          "code": "HOS-56",
+          "name": "Excellence in Digital Patient Engagement",
+          "level": "National"
+        },
+        {
+          "code": "HOS-57",
+          "name": "Excellence in Hospital Infrastructure",
+          "level": "National"
+        },
+        {
+          "code": "HOS-58",
+          "name": "Future-Ready Hospital of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-59",
+          "name": "Smart Hospital of the Year",
+          "level": "National"
+        },
+        {
+          "code": "HOS-60",
+          "name": "Eco-Hospital & Green Campus Award (Regional)",
+          "level": "Regional"
+        },
+        {
+          "code": "HOS-61",
+          "name": "Best Patient Experience Award",
+          "level": "National"
+        },
+        {
+          "code": "HOS-62",
+          "name": "Excellence in Patient-Centric Care",
+          "level": "National"
+        },
+        {
+          "code": "HOS-63",
+          "name": "Excellence in Nursing Services",
+          "level": "National"
+        },
+        {
+          "code": "HOS-64",
+          "name": "Excellence in Patient Satisfaction",
+          "level": "National"
+        },
+        {
+          "code": "HOS-65",
+          "name": "Excellence in Patient Communication & Engagement",
+          "level": "National"
+        },
+        {
+          "code": "HOS-66",
+          "name": "Excellence in Medication Safety",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "medical-specialties",
+      "number": 2,
+      "name": "Excellence in Medical Specialties",
+      "shortName": "Medical Specialties",
+      "icon": "🩺",
+      "badge": "20 Categories",
+      "description": "Celebrating departments and clinician teams delivering breakthrough clinical outcomes across major medical disciplines.",
+      "awards": [
+        {
+          "code": "MED-01",
+          "name": "Excellence in Cardiology",
+          "level": "National"
+        },
+        {
+          "code": "MED-02",
+          "name": "Excellence in Cardiothoracic Surgery",
+          "level": "National"
+        },
+        {
+          "code": "MED-03",
+          "name": "Excellence in Diabetology",
+          "level": "National"
+        },
+        {
+          "code": "MED-04",
+          "name": "Excellence in Dermatology",
+          "level": "National"
+        },
+        {
+          "code": "MED-05",
+          "name": "Excellence in General Surgery",
+          "level": "National"
+        },
+        {
+          "code": "MED-06",
+          "name": "Excellence in Gastroenterology & Hepatology",
+          "level": "National"
+        },
+        {
+          "code": "MED-07",
+          "name": "Excellence in Hematology",
+          "level": "National"
+        },
+        {
+          "code": "MED-08",
+          "name": "Excellence in Neurology",
+          "level": "National"
+        },
+        {
+          "code": "MED-09",
+          "name": "Excellence in Nephrology",
+          "level": "National"
+        },
+        {
+          "code": "MED-10",
+          "name": "Excellence in Neurosurgery",
+          "level": "National"
+        },
+        {
+          "code": "MED-11",
+          "name": "Excellence in Obstetrics & Gynaecology",
+          "level": "National"
+        },
+        {
+          "code": "MED-12",
+          "name": "Excellence in Oncology",
+          "level": "National"
+        },
+        {
+          "code": "MED-13",
+          "name": "Excellence in Ophthalmology",
+          "level": "National"
+        },
+        {
+          "code": "MED-14",
+          "name": "Excellence in Orthopaedic Surgery",
+          "level": "National"
+        },
+        {
+          "code": "MED-15",
+          "name": "Excellence in Otolaryngology (ENT)",
+          "level": "National"
+        },
+        {
+          "code": "MED-16",
+          "name": "Excellence in Paediatrics",
+          "level": "National"
+        },
+        {
+          "code": "MED-17",
+          "name": "Excellence in Pulmonology",
+          "level": "National"
+        },
+        {
+          "code": "MED-18",
+          "name": "Excellence in Psychiatry",
+          "level": "National"
+        },
+        {
+          "code": "MED-19",
+          "name": "Excellence in Radiology",
+          "level": "National"
+        },
+        {
+          "code": "MED-20",
+          "name": "Excellence in Urology",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "leadership",
+      "number": 3,
+      "name": "Healthcare Leadership & Management Excellence Awards",
+      "shortName": "Leadership & C-Suite",
+      "icon": "👔",
+      "badge": "22 Categories",
+      "description": "Honoring visionary CEOs, directors, administrators, and transformational executives shaping the Indian healthcare ecosystem.",
+      "awards": [
+        {
+          "code": "LDR-01",
+          "name": "Healthcare CEO Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-02",
+          "name": "Healthcare CFO Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-03",
+          "name": "Healthcare COO Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-04",
+          "name": "Healthcare CIO / CTO Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-05",
+          "name": "Healthcare Administrator Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-06",
+          "name": "Healthcare Entrepreneurial Leadership Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-07",
+          "name": "Healthcare Visionary Leadership Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-08",
+          "name": "Healthcare Women Leadership Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-09",
+          "name": "Healthcare Young Leadership Excellence (Under 40)",
+          "level": "National"
+        },
+        {
+          "code": "LDR-10",
+          "name": "Healthcare Marketing Leadership Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-11",
+          "name": "Healthcare HR Leadership Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-12",
+          "name": "Healthcare Innovation Leadership Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-13",
+          "name": "Healthcare Transformation Leadership Excellence",
+          "level": "National"
+        },
+        {
+          "code": "LDR-14",
+          "name": "Excellence in Hospital Administration",
+          "level": "National"
+        },
+        {
+          "code": "LDR-15",
+          "name": "Excellence in Healthcare Business Management",
+          "level": "National"
+        },
+        {
+          "code": "LDR-16",
+          "name": "Excellence in Strategic Healthcare Leadership",
+          "level": "National"
+        },
+        {
+          "code": "LDR-17",
+          "name": "Excellence in Healthcare Institution Building",
+          "level": "National"
+        },
+        {
+          "code": "LDR-18",
+          "name": "Excellence in Healthcare Policy & Advocacy",
+          "level": "National"
+        },
+        {
+          "code": "LDR-19",
+          "name": "Excellence in Healthcare Research Leadership",
+          "level": "National"
+        },
+        {
+          "code": "LDR-20",
+          "name": "Lifetime Achievement in Healthcare Leadership",
+          "level": "National"
+        },
+        {
+          "code": "LDR-21",
+          "name": "Healthcare Marketing Leader of the Year",
+          "level": "National"
+        },
+        {
+          "code": "LDR-22",
+          "name": "Healthcare Visionary Leader of the Year",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "insurance",
+      "number": 4,
+      "name": "Excellence in Health Insurance & Claims Management",
+      "shortName": "Insurance & Claims",
+      "icon": "🛡️",
+      "badge": "9 Categories",
+      "description": "Recognizing cashless healthcare operations, third-party administration, claims settlement integrity, and patient advocacy.",
+      "awards": [
+        {
+          "code": "INS-01",
+          "name": "Excellence in Health Insurance Management",
+          "level": "National"
+        },
+        {
+          "code": "INS-02",
+          "name": "Best Hospital Insurance Desk",
+          "level": "National"
+        },
+        {
+          "code": "INS-03",
+          "name": "Excellence in Cashless Insurance Services",
+          "level": "National"
+        },
+        {
+          "code": "INS-04",
+          "name": "Excellence in Third-Party Administrator (TPA) Management",
+          "level": "National"
+        },
+        {
+          "code": "INS-05",
+          "name": "Excellence in Insurance Claims Management",
+          "level": "National"
+        },
+        {
+          "code": "INS-06",
+          "name": "Excellence in Patient Insurance Support & Assistance",
+          "level": "National"
+        },
+        {
+          "code": "INS-07",
+          "name": "Excellence in Government Health Insurance Scheme Implementation",
+          "level": "National"
+        },
+        {
+          "code": "INS-08",
+          "name": "Excellence in Corporate Healthcare Insurance Coordination",
+          "level": "National"
+        },
+        {
+          "code": "INS-09",
+          "name": "Excellence in Insurance Settlement & Reimbursement Services",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "women-in-healthcare",
+      "number": 5,
+      "name": "Women in Healthcare Excellence Awards",
+      "shortName": "Women in Healthcare",
+      "icon": "👩‍⚕️",
+      "badge": "7 Categories",
+      "description": "Celebrating trailblazing female clinicians, hospital executives, life science researchers, and healthcare innovators.",
+      "awards": [
+        {
+          "code": "WMN-01",
+          "name": "Woman Healthcare Leader of the Year",
+          "level": "National"
+        },
+        {
+          "code": "WMN-02",
+          "name": "Woman Entrepreneur in Healthcare",
+          "level": "National"
+        },
+        {
+          "code": "WMN-03",
+          "name": "Woman Scientist in Healthcare",
+          "level": "National"
+        },
+        {
+          "code": "WMN-04",
+          "name": "Excellence in Women-led Healthcare Innovation",
+          "level": "National"
+        },
+        {
+          "code": "WMN-05",
+          "name": "Emerging Woman Leader in Healthcare",
+          "level": "National"
+        },
+        {
+          "code": "WMN-06",
+          "name": "Excellence in Women-led Healthcare Research",
+          "level": "National"
+        },
+        {
+          "code": "WMN-07",
+          "name": "Lifetime Achievement in Healthcare – Woman Leader",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "research-innovation",
+      "number": 6,
+      "name": "Research & Innovation Excellence Awards",
+      "shortName": "Research & Innovation",
+      "icon": "🔬",
+      "badge": "6 Categories",
+      "description": "Recognizing breakthrough clinical trials, contract research excellence (CRO/SMO), and translational medicine discoveries.",
+      "awards": [
+        {
+          "code": "RES-01",
+          "name": "Clinical Research Excellence Award",
+          "level": "National"
+        },
+        {
+          "code": "RES-02",
+          "name": "Clinical Research Organisation (CRO) of the Year",
+          "level": "National"
+        },
+        {
+          "code": "RES-03",
+          "name": "Site Management Organisation (SMO) of the Year",
+          "level": "National"
+        },
+        {
+          "code": "RES-04",
+          "name": "AI Innovation in Healthcare Award",
+          "level": "National"
+        },
+        {
+          "code": "RES-05",
+          "name": "Excellence in Clinical Trial Management",
+          "level": "National"
+        },
+        {
+          "code": "RES-06",
+          "name": "Excellence in Translational Medical Research",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "public-health",
+      "number": 7,
+      "name": "Public Health Excellence Awards",
+      "shortName": "Public Health & CSR",
+      "icon": "🌍",
+      "badge": "12 Categories",
+      "description": "Honoring grassroots initiatives, preventive medicine, maternal-child programs, and tribal/underserved healthcare outreach.",
+      "awards": [
+        {
+          "code": "PUB-01",
+          "name": "Public Health Initiative of the Year",
+          "level": "National"
+        },
+        {
+          "code": "PUB-02",
+          "name": "NGO Healthcare Impact Award",
+          "level": "National"
+        },
+        {
+          "code": "PUB-03",
+          "name": "Rural Healthcare Excellence Award",
+          "level": "National / Regional"
+        },
+        {
+          "code": "PUB-04",
+          "name": "Excellence in Community Healthcare Services",
+          "level": "National"
+        },
+        {
+          "code": "PUB-05",
+          "name": "Excellence in Preventive Healthcare",
+          "level": "National"
+        },
+        {
+          "code": "PUB-06",
+          "name": "Excellence in Maternal & Child Health Initiatives",
+          "level": "National"
+        },
+        {
+          "code": "PUB-07",
+          "name": "Excellence in Health Awareness & Education",
+          "level": "National"
+        },
+        {
+          "code": "PUB-08",
+          "name": "Excellence in Vaccination & Immunisation Initiatives",
+          "level": "National"
+        },
+        {
+          "code": "PUB-09",
+          "name": "Excellence in Healthcare Access & Affordability",
+          "level": "National"
+        },
+        {
+          "code": "PUB-10",
+          "name": "Excellence in Disease Prevention & Control",
+          "level": "National"
+        },
+        {
+          "code": "PUB-11",
+          "name": "Excellence in Tribal & Underserved Community Healthcare",
+          "level": "National"
+        },
+        {
+          "code": "PUB-12",
+          "name": "Excellence in Government–Private Healthcare Collaboration",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "diagnostics",
+      "number": 8,
+      "name": "Diagnostics Excellence Awards",
+      "shortName": "Diagnostics & Imaging",
+      "icon": "🧪",
+      "badge": "8 Categories",
+      "description": "Recognizing high-precision pathology laboratories, advanced imaging centers, molecular diagnostics, and point-of-care innovations.",
+      "awards": [
+        {
+          "code": "DIA-01",
+          "name": "Diagnostic Chain of the Year (India)",
+          "level": "National"
+        },
+        {
+          "code": "DIA-02",
+          "name": "Diagnostic Centre of the Year (India)",
+          "level": "National"
+        },
+        {
+          "code": "DIA-03",
+          "name": "Excellence in Pathology & Laboratory Services",
+          "level": "National"
+        },
+        {
+          "code": "DIA-04",
+          "name": "Excellence in Radiology & Imaging Services",
+          "level": "National"
+        },
+        {
+          "code": "DIA-05",
+          "name": "Excellence in Precision Diagnostics",
+          "level": "National"
+        },
+        {
+          "code": "DIA-06",
+          "name": "Excellence in Digital Diagnostics & AI",
+          "level": "National"
+        },
+        {
+          "code": "DIA-07",
+          "name": "Excellence in Preventive Health Screening",
+          "level": "National"
+        },
+        {
+          "code": "DIA-08",
+          "name": "Excellence in Point-of-Care Diagnostics",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "ivf-fertility",
+      "number": 9,
+      "name": "IVF & Fertility Excellence Awards",
+      "shortName": "IVF & Fertility",
+      "icon": "👶",
+      "badge": "8 Categories",
+      "description": "Celebrating exemplary reproductive medicine, embryology standards, compassionate patient care, and fertility success rates.",
+      "awards": [
+        {
+          "code": "IVF-01",
+          "name": "IVF Centre of the Year (India)",
+          "level": "National"
+        },
+        {
+          "code": "IVF-02",
+          "name": "Patient Choice IVF Centre",
+          "level": "National"
+        },
+        {
+          "code": "IVF-03",
+          "name": "IVF Innovation Award",
+          "level": "National"
+        },
+        {
+          "code": "IVF-04",
+          "name": "Excellence in Fertility Treatment",
+          "level": "National"
+        },
+        {
+          "code": "IVF-05",
+          "name": "Excellence in Reproductive Medicine",
+          "level": "National"
+        },
+        {
+          "code": "IVF-06",
+          "name": "Excellence in Embryology & Andrology",
+          "level": "National"
+        },
+        {
+          "code": "IVF-07",
+          "name": "Emerging IVF Centre of the Year",
+          "level": "National"
+        },
+        {
+          "code": "IVF-08",
+          "name": "Excellence in Patient-Centred Fertility Care",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "number": 10,
+      "name": "Healthcare Education Excellence Awards",
+      "shortName": "Education & Academics",
+      "icon": "🎓",
+      "badge": "9 Categories",
+      "description": "Honoring premier medical colleges, nursing and pharmacy institutions driving medical pedagogy, curriculum reform, and skill training.",
+      "awards": [
+        {
+          "code": "EDU-01",
+          "name": "Medical College Excellence – India",
+          "level": "National"
+        },
+        {
+          "code": "EDU-02",
+          "name": "Pharmacy College Excellence – India",
+          "level": "National"
+        },
+        {
+          "code": "EDU-03",
+          "name": "Nursing Institution Excellence – India",
+          "level": "National"
+        },
+        {
+          "code": "EDU-04",
+          "name": "Paramedical Institute Excellence – India",
+          "level": "National"
+        },
+        {
+          "code": "EDU-05",
+          "name": "Excellence in Healthcare Skill Development",
+          "level": "National"
+        },
+        {
+          "code": "EDU-06",
+          "name": "Excellence in Pharmacy Education & Training",
+          "level": "National"
+        },
+        {
+          "code": "EDU-07",
+          "name": "Excellence in Medical Research & Academic Development",
+          "level": "National"
+        },
+        {
+          "code": "EDU-08",
+          "name": "Excellence in Healthcare Industry–Academia Collaboration",
+          "level": "National"
+        },
+        {
+          "code": "EDU-09",
+          "name": "Emerging Healthcare Educational Institution Excellence",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "pharma",
+      "number": 11,
+      "name": "Pharmaceutical Excellence Awards",
+      "shortName": "Pharmaceuticals",
+      "icon": "💊",
+      "badge": "12 Categories",
+      "description": "Honoring outstanding drug manufacturing, active pharmaceutical ingredients (APIs), CDMO partnerships, and regulatory leadership.",
+      "awards": [
+        {
+          "code": "PHA-01",
+          "name": "Pharma Company of the Year (India)",
+          "level": "National"
+        },
+        {
+          "code": "PHA-02",
+          "name": "Pharma CEO of the Year (India)",
+          "level": "National"
+        },
+        {
+          "code": "PHA-03",
+          "name": "Emerging Pharmaceutical Company of the Year",
+          "level": "National"
+        },
+        {
+          "code": "PHA-04",
+          "name": "Excellence in Pharmaceutical Manufacturing",
+          "level": "National"
+        },
+        {
+          "code": "PHA-05",
+          "name": "Excellence in Pharmaceutical Research & Development",
+          "level": "National"
+        },
+        {
+          "code": "PHA-06",
+          "name": "Excellence in Quality Assurance & Quality Control",
+          "level": "National"
+        },
+        {
+          "code": "PHA-07",
+          "name": "Excellence in Pharmaceutical Exports",
+          "level": "National"
+        },
+        {
+          "code": "PHA-08",
+          "name": "Excellence in Contract Development & Manufacturing (CDMO)",
+          "level": "National"
+        },
+        {
+          "code": "PHA-09",
+          "name": "Excellence in Pharmaceutical Marketing & Branding",
+          "level": "National"
+        },
+        {
+          "code": "PHA-10",
+          "name": "Excellence in API Manufacturing",
+          "level": "National"
+        },
+        {
+          "code": "PHA-11",
+          "name": "Excellence in Formulation Development",
+          "level": "National"
+        },
+        {
+          "code": "PHA-12",
+          "name": "Excellence in Regulatory Affairs",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "startups",
+      "number": 12,
+      "name": "Healthcare Startup Excellence Awards",
+      "shortName": "Startups & HealthTech",
+      "icon": "🚀",
+      "badge": "10 Categories",
+      "description": "Spotlighting disruptive startups in healthtech, medical devices, AI diagnostics, biotechnology, and patient empowerment.",
+      "awards": [
+        {
+          "code": "STU-01",
+          "name": "Healthcare Startup of the Year (India)",
+          "level": "National"
+        },
+        {
+          "code": "STU-02",
+          "name": "Emerging HealthTech Startup of the Year",
+          "level": "National"
+        },
+        {
+          "code": "STU-03",
+          "name": "Digital Healthcare Startup of the Year",
+          "level": "National"
+        },
+        {
+          "code": "STU-04",
+          "name": "AI Healthcare Startup of the Year",
+          "level": "National"
+        },
+        {
+          "code": "STU-05",
+          "name": "MedTech Startup of the Year",
+          "level": "National"
+        },
+        {
+          "code": "STU-06",
+          "name": "Pharmaceutical Startup of the Year",
+          "level": "National"
+        },
+        {
+          "code": "STU-07",
+          "name": "Biotechnology Startup of the Year",
+          "level": "National"
+        },
+        {
+          "code": "STU-08",
+          "name": "Healthcare Innovation Startup of the Year",
+          "level": "National"
+        },
+        {
+          "code": "STU-09",
+          "name": "Women-led Healthcare Startup of the Year",
+          "level": "National"
+        },
+        {
+          "code": "STU-10",
+          "name": "Social Impact Healthcare Startup of the Year",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "pharmacy-retail",
+      "number": 13,
+      "name": "Pharmacy Retail Chain Excellence Awards",
+      "shortName": "Pharmacy Retail",
+      "icon": "🏪",
+      "badge": "7 Categories",
+      "description": "Honoring premier retail pharmacy chains ensuring medicine accessibility, authentic dispensing, and cold-chain compliance across regions.",
+      "awards": [
+        {
+          "code": "RET-01",
+          "name": "Pharmacy Retail Chain Excellence – India",
+          "level": "National"
+        },
+        {
+          "code": "RET-02",
+          "name": "Pharmacy Retail Chain Excellence – East India",
+          "level": "Regional (East)"
+        },
+        {
+          "code": "RET-03",
+          "name": "Pharmacy Retail Chain Excellence – North India",
+          "level": "Regional (North)"
+        },
+        {
+          "code": "RET-04",
+          "name": "Pharmacy Retail Chain Excellence – South India",
+          "level": "Regional (South)"
+        },
+        {
+          "code": "RET-05",
+          "name": "Pharmacy Retail Chain Excellence – West India",
+          "level": "Regional (West)"
+        },
+        {
+          "code": "RET-06",
+          "name": "Pharmacy Retail Chain Excellence – Central India",
+          "level": "Regional (Central)"
+        },
+        {
+          "code": "RET-07",
+          "name": "Pharmacy Retail Chain Excellence – North-East India",
+          "level": "Regional (North-East)"
+        }
+      ]
+    },
+    {
+      "id": "cosmetics",
+      "number": 14,
+      "name": "Cosmetics & Cosmeceutical Excellence Awards",
+      "shortName": "Cosmetics & Derma",
+      "icon": "✨",
+      "badge": "10 Categories",
+      "description": "Recognizing excellence in dermatology-backed cosmetics, active skin formulations, natural aesthetics, and cosmetic R&D.",
+      "awards": [
+        {
+          "code": "COS-01",
+          "name": "Cosmetics Brand Excellence – India",
+          "level": "National"
+        },
+        {
+          "code": "COS-02",
+          "name": "Cosmeceutical Innovation Excellence",
+          "level": "National"
+        },
+        {
+          "code": "COS-03",
+          "name": "Excellence in Cosmetic Research & Development",
+          "level": "National"
+        },
+        {
+          "code": "COS-04",
+          "name": "Excellence in Skincare Product Innovation",
+          "level": "National"
+        },
+        {
+          "code": "COS-05",
+          "name": "Excellence in Cosmetic Manufacturing",
+          "level": "National"
+        },
+        {
+          "code": "COS-06",
+          "name": "Emerging Cosmetics Brand Excellence",
+          "level": "National"
+        },
+        {
+          "code": "COS-07",
+          "name": "Excellence in Dermatological & Clinical Cosmetics",
+          "level": "National"
+        },
+        {
+          "code": "COS-08",
+          "name": "Excellence in Natural & Herbal Cosmetics",
+          "level": "National"
+        },
+        {
+          "code": "COS-09",
+          "name": "Excellence in Cosmetic Science & Formulation Development",
+          "level": "National"
+        },
+        {
+          "code": "COS-10",
+          "name": "Excellence in Sustainable & Ethical Cosmetics",
+          "level": "National"
+        }
+      ]
+    },
+    {
+      "id": "hall-of-fame",
+      "number": 15,
+      "name": "Dose Daily Hall of Fame",
+      "shortName": "Hall of Fame",
+      "icon": "👑",
+      "badge": "5 Apex Honors",
+      "isApex": true,
+      "description": "The highest honors in Indian medicine and healthcare, conferred upon legendary luminaries whose lifetime contributions have transformed millions of lives.",
+      "awards": [
+        {
+          "code": "HOF-01",
+          "name": "Healthcare Icon of India",
+          "level": "Apex Lifetime Honor",
+          "note": "Apex National Honor"
+        },
+        {
+          "code": "HOF-02",
+          "name": "Bharat Healthcare Visionary Award",
+          "level": "Apex National Honor",
+          "note": "Visionary Institution Builder"
+        },
+        {
+          "code": "HOF-03",
+          "name": "Lifetime Contribution to Healthcare",
+          "level": "Apex Lifetime Honor",
+          "note": "Distinguished Public & Clinical Service"
+        },
+        {
+          "code": "HOF-04",
+          "name": "Healthcare Changemaker Award",
+          "level": "Apex National Honor",
+          "note": "Systemic Reformer & Innovator"
+        },
+        {
+          "code": "HOF-05",
+          "name": "Lifetime Achievement in Medicine",
+          "level": "Apex Medical Honor",
+          "note": "Decades of Uncompromising Clinical Mastery"
+        }
+      ]
+    }
+  ]
+}
