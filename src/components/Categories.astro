@@ -320,6 +320,15 @@ const { tracks, totalAwards, totalTracks, edition } = awardData;
     let currentLevel = 'all';
     let currentQuery = '';
 
+    // Check for ?track= query parameter from homepage carousel
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialTrack = urlParams.get('track');
+    if (initialTrack) {
+      currentTrack = initialTrack;
+      if (mobileSelect) mobileSelect.value = initialTrack;
+      syncTrackButtonUI(initialTrack);
+    }
+
     function applyFilters() {
       let visibleCount = 0;
       const query = currentQuery.toLowerCase().trim();
