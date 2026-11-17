@@ -4,13 +4,13 @@ const { dates } = config;
 
 const schedule = [
   {
-    phase: "Phase 1: Entry Submissions",
+    phase: "Phase 1: Nomination & Entry Submissions",
     status: "Active",
     items: [
-      { activity: "Nominations Open", date: dates.nominationsOpen, status: "Upcoming", badge: "Kick-off", highlight: true },
-      { activity: "Early Bird Deadline", date: dates.earlyBirdDeadline, status: "Special Fee", badge: "Save 20%", highlight: true },
-      { activity: "Nomination Deadline", date: dates.nominationDeadline, status: "Standard", badge: "Standard Entry", highlight: false },
-      { activity: "Extended Deadline", date: dates.extendedDeadline, status: "Final Call", badge: "Portal Closes", highlight: false },
+      { activity: "Nominations Open", date: dates.nominationsOpen, status: "Kick-off", badge: "Open Now", highlight: true },
+      { activity: "Early Bird Nomination Deadline", date: dates.earlyBirdDeadline, status: "Special Fee Benefits", badge: "Early Bird", highlight: true },
+      { activity: "Standard Nomination Deadline", date: dates.nominationDeadline, status: "Standard Entry", badge: "Standard", highlight: false },
+      { activity: "Extended Submission Deadline – Final Call", date: dates.extendedDeadline, status: "Portal Closes", badge: "Final Call", highlight: false },
     ]
   },
   {
@@ -18,18 +18,18 @@ const schedule = [
     status: "Upcoming",
     items: [
       { activity: "Screening & Verification", date: dates.screeningVerification, status: "Process Audit", badge: "Audited", highlight: false },
-      { activity: "Jury Evaluation", date: dates.juryEvaluation, status: "Scoring Round", badge: "Independent Jury", highlight: false },
-      { activity: "Shortlist Announcement", date: dates.shortlistAnnouncement, status: "Notification", badge: "Top 5 / Category", highlight: false },
-      { activity: "Presentation & Site Visits", date: dates.presentationSiteVisits, status: "Verification", badge: "Field Inspection", highlight: false },
-      { activity: "Final Jury Meeting", date: dates.finalJuryMeeting, status: "Conclave", badge: "Grand Jury", highlight: false },
-      { activity: "Finalists Announcement", date: dates.finalistsAnnouncement, status: "Release", badge: "Official List", highlight: false },
+      { activity: "Independent Jury Evaluation", date: dates.juryEvaluation, status: "Scoring Round", badge: "Independent Jury", highlight: false },
+      { activity: "Top 5 / Category – Shortlist Announcement", date: dates.shortlistAnnouncement, status: "Notification", badge: "Shortlist", highlight: false },
+      { activity: "Presentation & Field Verification", date: dates.presentationSiteVisits, status: "Verification", badge: "Field Inspection", highlight: false },
+      { activity: "Grand Jury Conclave", date: dates.finalJuryMeeting, status: "Conclave", badge: "Grand Jury", highlight: false },
+      { activity: "Official Winners' Announcement", date: dates.finalistsAnnouncement, status: "Release", badge: "Official Winners", highlight: false },
     ]
   },
   {
     phase: "Phase 3: Grand Awards Night",
     status: "Grand Finale",
     items: [
-      { activity: "Awards Ceremony", date: dates.awardsCeremony, status: `${config.site.locationDisplay}`, badge: "Grand Conclave", highlight: true }
+      { activity: "DOSE DAILY HEALTHCARE EXCELLENCE AWARDS 2027", date: dates.awardsCeremony, status: `${config.site.locationDisplay}`, badge: "Grand Ceremony", highlight: true }
     ]
   }
 ];
@@ -44,7 +44,7 @@ const schedule = [
         Important <span class="gold-text-gradient">Dates & Activity Schedule</span>
       </h2>
       <p class="max-w-2xl mx-auto text-sm sm:text-base text-[#c9b8a3]">
-        Key milestones for the Dose Daily Healthcare Excellence Awards 2026. Keep track of deadlines to submit your entries on time.
+        Join us for the Dose Daily Healthcare Excellence Awards 2027 as we recognise outstanding contributions and achievements across India's healthcare ecosystem.
       </p>
     </div>
 
@@ -112,7 +112,7 @@ const schedule = [
           Ready to submit your nomination?
         </h4>
         <p class="text-xs sm:text-sm text-[#c9b8a3]">
-          Take advantage of Early Bird registration before 15 August 2026.
+          Take advantage of Early Bird registration before 30 November 2026.
         </p>
       </div>
       <button 
