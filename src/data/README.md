@@ -1,4 +1,4 @@
-# DHEA 2026 Central Configuration Guide (`config.json`)
+# DHEA 2027 Central Configuration Guide (`config.json`)
 
 All key website data, members details, images, downloadable PDF files, dates, and contact information are centrally managed in:
 📁 [`src/data/config.json`](file:///d:/React/Astro-conf/src/data/config.json)
@@ -18,7 +18,7 @@ Inside `config.json`, locate the `"members"` object:
       "role": "Former Director General of Health Services (DGHS)",
       "institution": "Ministry of Health & Family Welfare, Govt. of India",
       "badge": "Jury Chair",
-      "panel": "DHEA 2026 Panel",
+      "panel": "DHEA 2027 Panel",
       "verified": true,
       "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400",
       "localImagePath": "/images/members/dr-ak-mukherjee.jpg",
@@ -49,7 +49,7 @@ Inside `config.json`, locate the `"downloads"` object:
   "awardsBrochure": {
     "id": "awards-brochure",
     "title": "Official Awards Brochure & Entry Kit",
-    "subtitle": "Complete Guide to DHEA 2026 Categories & Guidelines",
+    "subtitle": "Complete Guide to DHEA 2027 Categories & Guidelines",
     "fileName": "DHEA-2026-Awards-Brochure.pdf",
     "filePath": "/downloads/DHEA-2026-Awards-Brochure.pdf",
     "fileSize": "3.4 MB",
@@ -91,7 +91,7 @@ Inside `config.json`, locate the `"downloads"` object:
 
 ```json
 "site": {
-  "name": "DHEA 2026",
+  "name": "DHEA 2027",
   "fullName": "Dose Daily Healthcare Excellence Awards",
   "eventDateDisplay": "December 2026",
   "city": "Kolkata",
